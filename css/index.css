@@ -10,7 +10,6 @@ body {
 
 * {
   box-sizing: border-box; /* Включает расчёт размеров с учётом padding и border внутри указанной ширины и высоты */
-  outline: 1px solid red;
 }
 
 /* === ФОН И ОСНОВНЫЕ СТИЛИ === */
@@ -357,4 +356,5 @@ footer.highlight {
 /* Мобильныек телефоны (альбом) / Маленькие планшеты */
 @media (min-width:481px) and (max-width: 767px){}
 /* Мобильные телефоны (портрет) */
+
 @media (max-width: 480px){}
