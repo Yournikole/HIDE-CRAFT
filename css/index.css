@@ -10,6 +10,7 @@ body {
 
 * {
   box-sizing: border-box; /* Включает расчёт размеров с учётом padding и border внутри указанной ширины и высоты */
+  /* outline: 1px solid red; */
 }
 
 /* === ФОН И ОСНОВНЫЕ СТИЛИ === */
@@ -37,10 +38,10 @@ img {
 
 /* === ШАПКА === */
 .top-nav {
-  width: 100%; /* Элемент занимает всю доступную ширину родителя */
   display: flex; /* Включает Flexbox для упрощённого выравнивания дочерних элементов */
   justify-content: space-between; /* Распределяет дочерние элементы равномерно с максимальным расстоянием между ними */
   align-items: center; /* Выравнивает дочерние элементы по центру по вертикали */
+  height: 60px;
   padding: 20px 60px; /* Внутренние отступы: 20px сверху/снизу, 60px слева/справа */
   padding-top: 50px; /* Перезаписывает верхний padding на 50px */
   box-sizing: border-box; /* Включает padding и border в расчёт ширины/высоты элемента */
@@ -55,11 +56,7 @@ img {
 }
 
 /* Лого всегда справа */
-.logo-container {
-  position: absolute; /* Элемент позиционируется относительно ближайшего родителя с position: relative (или body, если такого нет) */
-  right: 20px; /* Располагает элемент на 20px слева от правого края родителя */
-  top: 15px; /* Располагает элемент на 15px ниже верхнего края родителя */
-}
+
 
 .logo-container img {
   height: 110px; /* Устанавливает высоту элемента (например, изображения) в 110 пикселей */
@@ -144,9 +141,9 @@ img {
 }
 
 .hero-text h1 {
-  font-size: clamp(20px, 5vw, 90px);
-  font-weight: 700;
-  margin: 0 0 20px 0; /* Внешние отступы:
+  font-size: clamp(65px, 5vw, 140px);
+  letter-spacing: 1vw;
+  margin: 100px 0 20px 0; /* Внешние отступы:
                                    сверху -50px (поднимает элемент вверх),
                                    справа 0,
                                    снизу 20px,
@@ -156,9 +153,8 @@ img {
 }
 
 .hero-text h2 {
-  font-size: clamp(20px, 5vw, 28px);
-  font-weight: 600;
-  margin: 10px 0 20px 0; /* Внешние отступы:
+  font-size: clamp(10px, 1.55vw, 100px);
+  margin: 10px 0 60px 0; /* Внешние отступы:
                                   сверху — 10px,
                                   справа — 0,
                                   снизу — 20px,
@@ -166,11 +162,12 @@ img {
 }
 
 .hero-text p {
-  font-size: clamp(10px, 5vw, 20px);
+  font-size: clamp(10px, 1.3vw, 90px);
+  width: 85%;
   line-height: 1.8; /* Межстрочный интервал — 1.8 от размера шрифта (улучшает читаемость) */
   text-align: justify; /* Выравнивает текст по ширине (по левому и правому краю) */
   text-justify: inter-word; /* Распределяет пробелы между словами для выравнивания текста */
-  margin: 0px; /* Убирает нижний внешний отступ */
+  margin: 0px 0 100px 0; /* Убирает нижний внешний отступ */
 }
 
 /* !!!ПЕРЕДЕЛАТЬ НА КОЛОНКИ!!! */
@@ -180,18 +177,17 @@ img {
   flex: 0.5;
   flex-direction: column;
   align-items: center;
-
   padding-bottom: 40px;
 }
 .hero-media img {
   display: block; /* Делает элемент блочным (занимает всю доступную ширину по умолчанию) */
   width: 100%; /* Устанавливает ширину элемента 100% от ширины родителя */
-  max-width: 750px;
+  max-width: 1200px;
 }
 
 /* === КНОПКА "В НАЛИЧИИ" === */
 .availability-btn {
-  margin-top: -120px;
+  margin-top: -5vw;
   padding: 15px 40px; /* Внутренние отступы: 15px сверху/снизу, 40px слева/справа */
   font-size: 22px; /* Размер текста 22px */
   font-weight: bold; /* Жирное начертание текста */
@@ -343,9 +339,7 @@ footer.highlight {
 */
 
 @media (min-width: 1440px) and (max-width: 1800px){
-  .hero-text p {
-  width: 100%;
-}
+
 }
 /* Ноутбуки / Десктопы */
 @media (min-width:1200px) and (max-width: 1439px){}
@@ -356,5 +350,4 @@ footer.highlight {
 /* Мобильныек телефоны (альбом) / Маленькие планшеты */
 @media (min-width:481px) and (max-width: 767px){}
 /* Мобильные телефоны (портрет) */
-
 @media (max-width: 480px){}
