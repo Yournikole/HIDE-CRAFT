@@ -42,7 +42,7 @@ img {
   justify-content: space-between; /* Распределяет дочерние элементы равномерно с максимальным расстоянием между ними */
   align-items: center; /* Выравнивает дочерние элементы по центру по вертикали */
   height: 60px;
-  padding: 4vw 5vw 2vw 5vw; /* Внутренние отступы: 20px сверху/снизу, 60px слева/справа */
+  padding: 4vw 2vw 2vw 5vw; /* Внутренние отступы: 20px сверху/снизу, 60px слева/справа */
   box-sizing: border-box; /* Включает padding и border в расчёт ширины/высоты элемента */
   position: relative; /* Позволяет позиционировать дочерние элементы относительно этого элемента */
   background: rgba(
@@ -329,16 +329,20 @@ footer.highlight {
 ===============
 */
 
-@media (min-width: 1440px) and (max-width: 1800px){
-
+@media (min-width: 1440px) and (max-width: 1800px) {
 }
 /* Ноутбуки / Десктопы */
-@media (min-width:1200px) and (max-width: 1439px){}
+@media (min-width: 1200px) and (max-width: 1439px) {
+}
 /* Планшеты (альбом) / Маленькие ноутбуки */
-@media (min-width:992px) and (max-width: 1199px){}
+@media (min-width: 992px) and (max-width: 1199px) {
+}
 /* Планшеты (портрет) */
-@media (min-width:768px) and (max-width: 991px){}
+@media (min-width: 768px) and (max-width: 991px) {
+}
 /* Мобильныек телефоны (альбом) / Маленькие планшеты */
-@media (min-width:481px) and (max-width: 767px){}
+@media (min-width: 481px) and (max-width: 767px) {
+}
 /* Мобильные телефоны (портрет) */
-@media (max-width: 480px){}
+@media (max-width: 480px) {
+}
