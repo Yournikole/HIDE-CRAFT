@@ -78,100 +78,38 @@ img {
   display: none; /* Скрывает элемент (он полностью убирается из потока страницы) */
 }
 
-/* === HERO === */
+/* ================== HERO ================== */
 .hero {
-  display: flex; /* Включает Flexbox */
-  align-items: center; /* Выравнивание по вертикали */
-  flex: 1;
-  /* padding-top: 100px; */ /* Внутренний отступ сверху 100px */
-  padding-left: 5vw; /* Внутренний отступ слева 50px */
-  padding-right: 5vw; /* Внутренний отступ справа 50px */
-  margin: 0; /* Убирает внешние отступы */
+    min-height: 100vh;
+    width: 100%;
+    padding: clamp(40px, 8vw, 100px) clamp(15px, 5vw, 50px);
 }
 
-.hero-text {
-  flex: 0.6;
-  width: 100%; /* Устанавливает ширину элемента равной 100% ширины родителя */
-  max-width: none; /* Убирает ограничение максимальной ширины (если оно было задано ранее) */
+.main-title h1 {
+    font-size: clamp(32px, 8vw, 90px);
+    line-height: 1.1;
+    margin: 0 0 20px 0;
 }
 
-.main-title-media {
-  display: none; /* Полностью скрывает элемент — он не отображается и не занимает место в документе */
+.sub-content h2 {
+    font-size: clamp(18px, 4vw, 28px);
+    margin-bottom: 20px;
 }
 
-.hero-text h1 {
-  font-size: clamp(65px, 5vw, 140px);
-  letter-spacing: 1vw;
-  margin: 2vw 0 1vw -0.3vw;
+/* ===== TEXT ===== */
+.description-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 10px;
 }
 
-.hero-text h2 {
-  font-size: clamp(10px, 1.55vw, 100px);
-  margin: 10px 0 2.5vw 0;
+.description {
+    font-size: clamp(16px, 3.5vw, 20px);
+    line-height: 1.7;
+    text-align: justify;
 }
 
-.hero-text p {
-  font-size: clamp(10px, 1.3vw, 90px);
-  width: 85%;
-  line-height: 1.5; /* Межстрочный интервал — 1.8 от размера шрифта (улучшает читаемость) */
-  text-align: justify; /* Выравнивает текст по ширине (по левому и правому краю) */
-  text-justify: inter-word; /* Распределяет пробелы между словами для выравнивания текста */
-  margin: 0px 0 100px 0; /* Убирает нижний внешний отступ */
-}
-
-/* !!!ПЕРЕДЕЛАТЬ НА КОЛОНКИ!!! */
-
-.hero-media {
-  display: flex;
-  flex: 0.5;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 40px;
-}
-.hero-media img {
-  display: block; /* Делает элемент блочным (занимает всю доступную ширину по умолчанию) */
-  width: 100%; /* Устанавливает ширину элемента 100% от ширины родителя */
-  max-width: 1200px;
-  margin-top: -120px;
-}
-
-/* === КНОПКА "В НАЛИЧИИ" === */
-.availability-btn {
-  margin-left: -4vw;
-  margin-top: -7.5vw;
-  padding: 1.3vw 3vw; /* Внутренние отступы: 15px сверху/снизу, 40px слева/справа */
-  font-size: clamp(12px, 1.2vw, 35px); /* Размер текста 18 пикселей */
-  letter-spacing: 0.2vw;
-  font-weight: bold; /* Жирное начертание текста */
-  color: white; /* Белый цвет текста */
-  text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.8); /* Тень текста для лучшей читаемости */
-  background: rgba(255, 255, 255, 0.2); /* Полупрозрачный белый фон */
-  backdrop-filter: blur(
-    6px
-  ); /* Размытие фона позади элемента (эффект "стекла") */
-
-  border-radius: 50px; /* Сильно скругляет углы (кнопка-капсула) */
-  border: 1px solid rgba(255, 255, 255, 0.4); /* Полупрозрачная белая рамка */
-  cursor: pointer; /* Курсор в виде руки при наведении */
-  transition: 0.3s; /* Плавная анимация изменений (например, при hover) */
-  z-index: 10; /* Поднимает элемент поверх других с меньшим z-index */
-}
-
-.availability-btn:hover {
-  background: rgba(
-    255,
-    255,
-    255,
-    0.25
-  ); /* Полупрозрачный белый фон (25% непрозрачности) */
-  transform: scale(
-    1.05
-  ); /* Увеличивает элемент на 5% относительно его исходного размера */
-}
-
-/* === ПОДВАЛ === */
-/* ================= FOOTER ================= */
-
+/* ================== FOOTER ================== */
 .footer {
   background: linear-gradient(
     to bottom,
@@ -316,123 +254,179 @@ footer.highlight {
   }
 }
 
-/* 
-===============
-   АДАПТАЦИЯ
-===============
-*/
+/* ================== ADAPTIVE ================== */
 
+/* ===== 768px ===== */
 @media (max-width: 768px) {
-  .footer-inner {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 30px;
-  }
+    .menu {
+        gap: 40px;
+    }
 
-  .footer-copy {
-    text-align: center;
-  }
+    .footer-inner {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
-/* Скрываем бургер на десктопе */
-/* Бургер меню для мобильных */
+/* ===== 630px ===== */
 @media (max-width: 630px) {
-.burger {
+  body {
+        background-image: url('les-mobile.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll; 
+       }
+    .main-title h1 {
+     font-size: 80px;
+     margin-left: 9px;
+    }
+    .sub-content h2 {
+font-size: 24px;
+margin-left: 10px;
+    }
+    .description {
+font-size: 20px;
+    }
+.logo-container {
+right: 10px;
+}
+    .burger {
         display: flex;
-        align-items: center;
-        gap: 8px;
-        top: 35px;
-        left: 20px;
+        left: 30px;
     }
 
-    .burger-lines {
-        display: flex;
+    .top-nav {
         flex-direction: column;
-        gap: 4px;
+        align-items: stretch;
+        z-index: 1001;
     }
-
-    .burger-lines span {
-        width: 26px;
-        height: 3px;
-        background: white;
-        border-radius: 2px;
-    }
-
-    .burger-text {
-        font-size: 14px;
-        letter-spacing: 2px;
-        font-weight: 600;
-        color: white;
-    }
-    .hero{
-      position: relative;
-    }
-
     .menu {
         display: none;
-        width: 95%;
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.2));
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        align-items: flex-start;
+        position: static;          /* 🔥 КЛЮЧЕВОЕ */
+        width: 100%;
+        margin-top: 60px;
         padding: 20px;
-        gap: 15px;
-        margin-top: 200px;
+        gap: 5px;
+
+        background: linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.45),
+            rgba(255,255,255,0.2)
+        );
+        backdrop-filter: blur(12px);
+        border-radius: 0;
     }
 
     .menu.active {
         display: flex;
+        flex-direction: column;
     }
 
+    .menu a {
+        font-size: 18px;
+        padding: 6px 0;
+    }
+
+    h1, h2, p {
+        white-space: normal;
+        word-break: break-word;
+    }
+
+   /* ВЕСЬ ПОДВАЛ — ЦЕНТР */
+    .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        /* ← уменьшаем расстояние */
+    }
+
+    /* Убираем лишние отступы у колонок */
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        flex: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    /* Убираем лишние margin у текста */
+    .footer-left p,
+    .footer-center p,
+    .footer-right p {
+        margin: 4px 0;
+    }
+
+    /* ВТОРОЙ БЛОК — ССЫЛКИ */
+    .footer-right {
+        width: 100%;
+        text-align: center;
+        margin-top: 8px;
+    }
+
+    /* Блок с политиками — в столбик */
+    .footer-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        /* расстояние между пунктами */
+    }
+
+    /* Ссылки — каждая с новой строки */
+    .footer-right a {
+        display: block;
+        margin: 0;
+    }
+@media (max-width: 595px) {
+    
+    .main-title h1 {
+        font-size: 80px;
+        top: 0;
+    }
 }
-
-
-
-
-
-
-
-/* 
-===============
-   АДАПТАЦИЯ 2
-===============
-*/
-
-
-@media (min-width: 992px) and (max-width: 1199px) {
-  .menu a {
-    font-size: clamp(12px, 1.3vw, 35px); /* Размер текста 18 пикселей */
-  }
-  .hero-text h1 {
-    font-size: clamp(60px, 5.3vw, 140px);
-  }
+@media (max-width: 564px) {
+    
+    .main-title h1 {
+        font-size: 70px;
+        top: 0;
+    }
 }
-
-@media (min-width: 631px) and (max-width: 690px) {
-  .menu {
-  gap: 6.5vw; /* Устанавливает расстояние в 150px между всеми дочерними элементами */
+@media (max-width: 503px) {
+    
+    .main-title h1 {
+        font-size: 60px;
+        top: 0;
+    }
 }
-
-.logo-container img {
-  height: 9vw; /* Устанавливает высоту элемента (например, изображения) 110px */
+@media (max-width: 445px) {
+    
+    .main-title h1 {
+        font-size: 50px;
+        top: 0;
+    }
 }
-
-/* .hero-text{
-  display: none;
+    @media (max-width: 382px) {
+    
+    .main-title h1 {
+        font-size: 40px;
+        top: 0;
+    }
 }
-
-.hero-text-media{
-  display: block;
+    @media (max-width: 326px) {
+    
+    .main-title h1 {
+        font-size: 30px;
+        top: 0;
+    }
 }
-.m{
-  display: flex;
-}
-.hero-image{
-  display: none;
-}
-
-.hero-image-media{
-  display: block;
-} */
 }

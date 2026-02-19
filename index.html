@@ -9,6 +9,14 @@
   <body>
     <!-- Шапка -->
 <nav class="top-nav">
+    <div class="burger">
+    <div class="burger-lines">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <span class="burger-text">MENU</span>
+  </div>
   <div class="menu">
     <a href="index.html">HOME</a>
     <a href="about.html">ABOUT ME</a>
@@ -18,15 +26,6 @@
 
   <div class="logo-container">
       <img src="img/logo.png" alt="Logo" />
-  </div>
-
-  <div class="burger">
-    <div class="burger-lines">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <span class="burger-text">MENU</span>
   </div>
 </nav>
 
@@ -54,11 +53,11 @@
           href="https://t.me/hide_craft1985"
           class="availability-btn"
           target="_blank"
-          >ЗАКАЗАТЬ ИЗДЕЛИЕ</a
+          >ЗАКАЗАТЬ</a
         >
       </div>
 
-      <div class="main-title-media">
+<!--       <div class="hero-text-media">
         <div class="m">
           <h1>HIDE CRAFT</h1>
           <h2>ИЗДЕЛИЯ ИЗ НАТУРАЛЬНОЙ КОЖИ</h2>
@@ -75,48 +74,63 @@
           На каждое изделие действует пожизненная гарантия — качество всегда на
           первом месте.
         </p>
-      </div>
+      </div> -->
     </section>
 
     <!-- ПОДВАЛ -->
     <footer class="footer">
-      <div class="footer-inner">
-        <!-- Левый блок: Контакты -->
-        <div class="footer-left">
-          <p>КОНТАКТЫ:</p>
-          <p>ТЕЛ.: +7 (926) 729-70-31</p>
-        </div>
+  <div class="container">
+    <div class="footer-inner">
 
-        <!-- Средний блок: Соцсети -->
-        <div class="footer-center">
-          <p>ЗАКАЗАТЬ ИЗДЕЛИЕ:</p>
-          <div class="social-icons">
-            <a href="https://www.instagram.com/turtle.1142996/" target="_blank"
-              ><img src="img/socials/instagram.png" alt="Instagram"
-            /></a>
-            <a href="https://t.me/hide_craft1985" target="_blank"
-              ><img src="img/socials/telegram.png" alt="Telegram"
-            /></a>
-            <a href="https://wa.me/79267297031" target="_blank"
-              ><img src="img/socials/whatsapp.png" alt="WhatsApp"
-            /></a>
-          </div>
-        </div>
-
-        <!-- Правый блок: Документы -->
-        <div class="footer-right">
-          <a href="privacy.html">Политика конфиденциальности</a>
-          <a href="terms.html">Условия использования</a>
-          <a href="returns.html">Правила возврата и гарантии</a>
-        </div>
+      <!-- Контакты -->
+      <div class="footer-left">
+        <p class="footer-title">КОНТАКТЫ:</p>
+        <span class="phone-desktop">
+          +7 (926) 729-70-31
+        </span>
+        <a href="tel:+79267297031" class="phone-mobile">
+          +7 (926) 729-70-31
+        </a>
       </div>
 
-      <!-- Копирайт -->
-      <div class="footer-copy">
-        © Hide Craft — изделия из натуральной кожи ручной работы. Пожизненная
-        гарантия на все изделия.
+      <!-- Соцсети -->
+      <div class="footer-center">
+        <p class="footer-title">ЗАКАЗАТЬ ИЗДЕЛИЕ:</p>
+        <ul class="social-icons">
+          <li>
+            <a href="https://www.instagram.com/turtle.1142996/" target="_blank" rel="noopener">
+              <img src="img/socials/instagram.png" alt="Instagram">
+            </a>
+          </li>
+          <li>
+            <a href="https://t.me/hide_craft1985" target="_blank" rel="noopener">
+              <img src="img/socials/telegram.png" alt="Telegram">
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/79267297031" target="_blank" rel="noopener">
+              <img src="img/socials/whatsapp.png" alt="WhatsApp">
+            </a>
+          </li>
+        </ul>
       </div>
-    </footer>
+
+      <!-- Документы -->
+      <div class="footer-right">
+        <p class="footer-title-info">ПРАВОВАЯ ИНФОРМАЦИЯ:</p>
+        <a href="privacy.html">Политика конфиденциальности</a>
+        <a href="terms.html">Условия использования</a>
+        <a href="returns.html">Правила возврата и гарантии</a>
+      </div>
+
+    </div>
+
+    <div class="footer-copy">
+      © 2026 Hide Craft — изделия из натуральной кожи ручной работы.
+    </div>
+  </div>
+</footer>
+
     <script src="js/index.js"></script>
   </body>
 </html>

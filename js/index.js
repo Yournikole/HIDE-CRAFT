@@ -17,13 +17,12 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // Бургер-меню
-  const burger = document.querySelector(".burger");
-  const menu = document.querySelector(".menu");
+  const burger = document.querySelector('.burger');
+const menu = document.querySelector('.menu');
 
-  if (burger && menu) {
-    burger.addEventListener("click", function() {
-      menu.classList.toggle("active");
-    });
-  }
+burger.addEventListener('click', () => {
+  menu.classList.toggle('active'); // переключаем видимость меню
+});
+
 
 });

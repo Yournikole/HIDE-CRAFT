@@ -1,0 +1,608 @@
+@import "./reset.css";
+
+html,
+body {
+  max-width: 100%; /* Ограничивает максимальную ширину элемента 100% от родителя */
+  overflow-x: hidden; /* Скрывает горизонтальную прокрутку (если контент выходит за пределы по оси X) */
+  height: 100%; /* Устанавливает высоту элемента равной 100% высоты родителя */
+  margin: 0; /* Убирает внешние отступы со всех сторон */
+}
+
+* {
+  box-sizing: border-box; /* Включает расчёт размеров с учётом padding и border внутри указанной ширины и высоты */
+  /* outline: 1px solid red;   */
+}
+
+/* === ФОН И ОСНОВНЫЕ СТИЛИ === */
+body {
+  margin: 0; /* Убирает внешние отступы элемента */
+  padding: 0; /* Убирает внутренние отступы элемента */
+  background-image: url("../img/fon/les.png"); /* Устанавливает фоновое изображение */
+  background-size: cover; /* Масштабирует фон так, чтобы он полностью покрывал элемент */
+  background-position: center; /* Центрирует фоновое изображение */
+  background-attachment: fixed; /* Делает фон фиксированным (эффект параллакса при прокрутке) */
+  font-family:
+    Arial, sans-serif; /* Устанавливает шрифт Arial, с запасным вариантом sans-serif */
+  color: white; /* Устанавливает белый цвет текста */
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.8); /* Добавляет тень к тексту для лучшей читаемости */
+  overflow-x: hidden; /* Скрывает горизонтальную прокрутку */
+  display: flex; /* Включает Flexbox для элемента */
+  flex-direction: column; /* Располагает дочерние элементы вертикально (в колонку) */
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%; /* Ограничивает максимальную ширину элемента 100% ширины родителя (не даёт выходить за пределы контейнера) */
+  height: auto; /* Автоматически подстраивает высоту пропорционально ширине (сохраняет соотношение сторон, например, у изображений) */
+}
+
+/* === ШАПКА === */
+.top-nav {
+  display: flex; /* Включает Flexbox для упрощённого выравнивания дочерних элементов */
+  justify-content: space-between; /* Распределяет дочерние элементы равномерно с максимальным расстоянием между ними */
+  align-items: center; /* Выравнивает дочерние элементы по центру по вертикали */
+  height: 60px;
+  padding: 4vw 2vw 2vw 4.5vw; /* Внутренние отступы: 20px сверху/снизу, 60px слева/справа */
+  box-sizing: border-box; /* Включает padding и border в расчёт ширины/высоты элемента */
+  position: relative; /* Позволяет позиционировать дочерние элементы относительно этого элемента */
+  margin: 0 0 0 10px; /* Внешние отступы: сверху 0, справа 0, снизу 0, слева 10px */
+}
+
+/* Меню стандартное */
+.menu {
+  display: flex; /* Включает Flexbox для элемента, чтобы его дочерние элементы располагались в ряд (по умолчанию) */
+  gap: 11vw; /* Устанавливает расстояние в 150px между всеми дочерними элементами */
+}
+
+.menu a {
+  font-size: clamp(12px, 1.2vw, 35px); /* Размер текста 18 пикселей */
+  letter-spacing: 0.2vw;
+  font-weight: 600;
+  color: white; /* Цвет текста белый */
+  text-decoration: none; /* Убирает подчеркивание (обычно для ссылок) */
+  transition: 0.3s; /* Добавляет плавный переход для всех анимируемых свойств за 0.3 секунды */
+}
+
+.menu a:hover {
+  opacity: 0.7; /* Устанавливает прозрачность элемента: 0.7 = 70% видимости (30% прозрачности) */
+}
+
+.logo-container img {
+  height: 6vw; /* Устанавливает высоту элемента (например, изображения) 110px */
+  object-fit: contain; /* Масштабирует содержимое так, чтобы оно полностью помещалось в контейнер и сохраняло пропорции */
+  margin-left: 60px; /* Добавляет внешний отступ слева 60px */
+}
+
+/* Бургер меню для мобильных */
+.burger {
+  display: none; /* Скрывает элемент (он полностью убирается из потока страницы) */
+}
+
+/* === HERO === */
+/* === ТЕКСТ ПОЛИТИКИ КОНФИДЕНЦИАЛЬНОСТИ === */
+.privacy-content {
+          /* ограничивает ширину текста */
+    margin: 50px;        /* центрирует блок по горизонтали и отступ сверху */
+    padding: 0 20px;          /* внутренние отступы слева и справа */
+    line-height: 1.6;         /* межстрочный интервал */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: white;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.privacy-content h1 {
+    margin-bottom: 30px;
+
+}
+
+.privacy-content p {
+    margin-bottom: 20px;
+}
+
+
+/* === ПОДВАЛ === */
+
+.footer {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.45),
+    rgba(255, 255, 255, 0.2)
+  );
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 40px 20px 20px;
+}
+
+.footer-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* центр по горизонтали */
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-title {
+  font-size: clamp(14px, 1vw, 18px);
+  font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+.footer-title-info {
+  font-size: clamp(14px, 1vw, 18px);
+  font-weight: 700;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* центрирует по горизонтали */
+  text-align: center; /* центрирует текст */
+}
+
+.phone-mobile {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  .phone-desktop {
+    display: none;
+  }
+  .phone-mobile {
+    display: inline;
+  }
+}
+
+.phone-mobile,
+.phone-desktop {
+  font-size: clamp(10px, 0.9vw, 40px);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.phone-mobile:hover {
+  text-decoration: underline;
+}
+
+/* Соцсети */
+.social-icons {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5vw;
+  padding: 0;
+  margin: 0;
+}
+
+.social-icons img {
+  width: clamp(34px, 3vw, 55px);
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.15);
+}
+
+/* Документы */
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.footer-right a {
+  color: #fff;
+  text-decoration: none;
+  font-size: clamp(10px, 0.9vw, 40px);
+}
+
+.footer-right a:hover {
+  text-decoration: underline;
+}
+
+/* Копирайт */
+.footer-copy {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  font-size: clamp(10px, 0.9vw, 40px);
+  opacity: 0.8;
+}
+
+footer.highlight {
+  animation: footerGlow 2.5s ease-in-out forwards;
+  /* Применяет анимацию с именем "footerGlow":
+   - 2.5s — длительность анимации 2,5 секунды
+   - ease-in-out — плавное начало и завершение анимации
+   - forwards — сохраняет конечное состояние анимации после её окончания */
+}
+@keyframes footerGlow {
+  0% {
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+
+  30% {
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.7);
+  }
+
+  100% {
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+
+/* === АДАПТИВНОСТЬ === */
+@media (max-width: 768px) {
+    .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .footer-left, .footer-center, .footer-right {
+        text-align: center;
+    }
+
+    .footer-right {
+        align-items: center;
+    }
+}
+/* === АДАПТИВНОСТЬ === */
+/*@media (max-width: 768px) {
+    .main-title h1 { font-size: 60px; }
+    .sub-content h2 { font-size: 24px; }
+    .description { font-size: 18px; }
+    .social-icons img { width: 35px; height: 35px; }
+}
+
+@media (max-width: 480px) {
+    .main-title h1 { font-size: 40px; }
+    .sub-content h2 { font-size: 20px; }
+    .description { font-size: 16px; }
+    .social-icons img { width: 30px; height: 30px; }
+}*/
+/* Устанавливаем общий шрифт и размер для всех колонок подвала */
+.footer-left, .footer-center, .footer-right {
+    font-family: Arial, sans-serif; /* единый шрифт */
+    font-size: 16px;                /* единый размер */
+    font-weight: 400;               /* обычная толщина текста */
+    color: white;
+    line-height: 1.5;               /* одинаковый межстрочный интервал */
+}
+
+/* Для ссылок в правой колонке */
+.footer-right a {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+    text-decoration: none;
+}
+
+/* Чтобы заголовки вроде "КОНТАКТЫ:" и "МЫ В СОЦСЕТЯХ:" не были жирными сами по себе */
+.footer-left p:first-child,
+.footer-center p:first-child {
+    font-weight: 400; /* нормальная толщина */
+}
+/* === АДАПТИВНОСТЬ === */
+
+/* ===== 1024px ===== */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .hero {
+        flex-direction: column;
+    }
+
+    .main-title {
+        width: 100%;
+    }
+
+    .movable-image img {
+        width: 250px;
+        margin: -565px 0 0 630px;
+        display: block;
+    }
+
+    .hero p {
+        width: 90%;
+    }
+
+    .availability-btn {
+        position: static !important;
+        display: block;
+        width: fit-content;
+        margin: 330px auto 0 auto;
+        text-align: center;
+        transform: none !important;
+    }
+
+    .menu {
+        gap: 90px;
+    }
+
+    .footer-center {
+        margin-left: -100px;
+        text-align: center;
+    }
+}
+
+/* ===== 768px ===== */
+@media (max-width: 768px) and (min-width: 667px) {
+    .main-title-media h1 {
+        font-size: 54px;
+        white-space: nowrap;
+    }
+    .menu {
+        gap: 40px;
+        font-size: 14px;
+    }
+.main-title{
+    display: none;
+}
+.main-title-media{
+    display: block;
+}
+.m {
+    width: 50%;
+}
+    .logo-container img {
+        height: 90px;
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+   /* .movable-image img {
+        position: absolute;
+        width: 55%;
+        margin: auto;
+        display: block;
+        top: -25px;
+        margin-top: clamp(-25px, 8vw, 20px);
+        left: 50%;
+    }*/
+    .movable-image img {
+        position: absolute;
+        width: 55%;
+        left: 75%;
+        transform: translateX(-50%);
+        top: clamp(-15px, 5vw, 120px);
+
+        /* ВАЖНО */
+        margin: 0;
+    }
+
+    .availability-btn {
+        display: none !important;
+    }
+
+    .footer-inner {
+        justify-content: flex-start;
+        padding-left: 20px;
+        gap: 20px;
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        text-align: left;
+    }
+
+    .footer-center {
+        margin: 0;
+        text-align: center;
+    }
+
+    .footer-center .social-icons {
+        margin-top: 5px;
+    }
+}
+@media (max-width:666px) and (min-width: 481px){
+
+}
+
+
+/* ===== 480px ===== */
+@media (max-width: 630px) {
+      body {
+        background-image: url('les-mobile.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll; 
+       }
+   .privacy-content {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .privacy-content h1 {
+        font-size: 20px;
+    }
+
+    .privacy-content h1 {
+        font-size: clamp(10px, 10vw, 25px);
+        line-height: 1.1;
+        overflow-wrap: normal;
+    }
+
+    .hero h2 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        padding-left: 15px;
+        padding-right: -5px;
+        text-align: justify;
+    }
+
+    .main-title {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+
+    .logo-container {
+        position: absolute;
+        right: 20px;
+        top: 15px;
+    }
+
+    .logo-container img {
+        height: 70px;
+        margin-bottom: 0;
+    }
+
+    .top-nav {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px 20px;
+    }
+
+    .burger {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        position: absolute;
+        top: 35px;
+        left: 20px;
+    }
+
+    .burger-lines {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .burger-lines span {
+        width: 26px;
+        height: 3px;
+        background: white;
+        border-radius: 2px;
+    }
+
+    .burger-text {
+        font-size: 14px;
+        letter-spacing: 2px;
+        font-weight: 600;
+        color: white;
+    }
+
+    .menu {
+        display: none;
+        width: 90%;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.2));
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        gap: 15px;
+        position: static;
+        margin-top: 60px;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .hero {
+        padding-left: 5px;
+        padding-right: 10px;
+    }
+
+    
+
+    .description-wrapper p {
+        text-align: justify;
+    }
+
+    .movable-image img {
+        position: relative;
+        width: 95%;
+        margin: -20px auto 0 auto;
+        display: block;
+    }
+
+
+    /* ВЕСЬ ПОДВАЛ — ЦЕНТР */
+    .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        /* ← уменьшаем расстояние */
+    }
+
+    /* Убираем лишние отступы у колонок */
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        flex: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    /* Убираем лишние margin у текста */
+    .footer-left p,
+    .footer-center p,
+    .footer-right p {
+        margin: 4px 0;
+    }
+
+    /* ВТОРОЙ БЛОК — ССЫЛКИ */
+    .footer-right {
+        width: 100%;
+        text-align: center;
+        margin-top: 8px;
+    }
+
+    /* Блок с политиками — в столбик */
+    .footer-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        /* расстояние между пунктами */
+    }
+
+    /* Ссылки — каждая с новой строки */
+    .footer-right a {
+        display: block;
+        margin: 0;
+    }
+}
+
+/* ===== 360px ===== */
+@media (max-width: 360px) {
+    .main-title h1 {
+        font-size: 50px;
+    }
+
+    .main-title h2 {
+        font-size: 20px;
+    }
+}
