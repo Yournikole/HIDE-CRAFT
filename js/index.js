@@ -1,28 +1,33 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-  // Подсветка подвала
-  const contactsLink = document.getElementById('contacts-link');
+  // Плавный скролл к футеру и подсветка
+  const contactsLinks = document.querySelectorAll('.contacts-link');
   const footer = document.querySelector('footer');
 
-  if (contactsLink && footer) {
-    contactsLink.addEventListener('click', function(e) {
+  contactsLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
       e.preventDefault();
-
       footer.scrollIntoView({ behavior: 'smooth' });
-
       footer.classList.remove('highlight');
       void footer.offsetWidth; // перезапуск анимации
       footer.classList.add('highlight');
+
+      // Закрываем бургер-меню, если оно открыто
+      const menuBurger = document.querySelector('.menu-burger');
+      if (menuBurger.classList.contains('active')) {
+        menuBurger.classList.remove('active');
+      }
     });
-  }
+  });
 
   // Бургер-меню
   const burger = document.querySelector('.burger');
-const menu = document.querySelector('.menu');
+  const menu = document.querySelector('.menu-burger');
 
-burger.addEventListener('click', () => {
-  menu.classList.toggle('active'); // переключаем видимость меню
-});
+  burger.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    burger.classList.toggle('active');
+  });
 
 
 });

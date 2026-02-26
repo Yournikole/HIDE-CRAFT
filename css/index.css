@@ -1,177 +1,230 @@
+/* Подключаем файл reset.css, чтобы сбросить стандартные настройки */
 @import "./reset.css";
 
+/* Применяем стили к элементам html и body одновременно */
 html,
 body {
-  max-width: 100%; /* Ограничивает максимальную ширину элемента 100% от родителя */
-  overflow-x: hidden; /* Скрывает горизонтальную прокрутку (если контент выходит за пределы по оси X) */
-  height: 100%; /* Устанавливает высоту элемента равной 100% высоты родителя */
-  margin: 0; /* Убирает внешние отступы со всех сторон */
+  max-width: 100%; /* Ограничивает максимальную ширину элементов до 100% от родительского контейнера */
+  overflow-x: hidden; /* Скрывает горизонтальную прокрутку, чтобы контент не выходил за границы окна */
+  height: 100%; /* Устанавливает высоту элементов равной 100% от высоты окна браузера */
+  margin: 0; /* Убирает стандартные внешние отступы браузера вокруг элементов */
 }
 
+/* === ГЛОБАЛЬНЫЕ СТИЛИ === */
 * {
-  box-sizing: border-box; /* Включает расчёт размеров с учётом padding и border внутри указанной ширины и высоты */
-  /* outline: 1px solid red;   */
+  box-sizing: border-box; /* Включает расчёт ширины и высоты элементов с учётом padding и border.
+                             Это упрощает верстку и делает размеры элементов более предсказуемыми */
 }
 
-/* === ФОН И ОСНОВНЫЕ СТИЛИ === */
+/* === ФОН И ОСНОВНЫЕ СТИЛИ ДЛЯ BODY === */
 body {
-  margin: 0; /* Убирает внешние отступы элемента */
-  padding: 0; /* Убирает внутренние отступы элемента */
-  background-image: url("../img/fon/les.png"); /* Устанавливает фоновое изображение */
-  background-size: cover; /* Масштабирует фон так, чтобы он полностью покрывал элемент */
-  background-position: center; /* Центрирует фоновое изображение */
-  background-attachment: fixed; /* Делает фон фиксированным (эффект параллакса при прокрутке) */
-  font-family:
-    Arial, sans-serif; /* Устанавливает шрифт Arial, с запасным вариантом sans-serif */
-  color: white; /* Устанавливает белый цвет текста */
-  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.8); /* Добавляет тень к тексту для лучшей читаемости */
-  overflow-x: hidden; /* Скрывает горизонтальную прокрутку */
-  display: flex; /* Включает Flexbox для элемента */
-  flex-direction: column; /* Располагает дочерние элементы вертикально (в колонку) */
-  min-height: 100vh;
-}
+  margin: 0; /* Убирает внешние отступы вокруг body */
+  padding: 0; /* Убирает внутренние отступы внутри body */
 
-img {
-  max-width: 100%; /* Ограничивает максимальную ширину элемента 100% ширины родителя (не даёт выходить за пределы контейнера) */
-  height: auto; /* Автоматически подстраивает высоту пропорционально ширине (сохраняет соотношение сторон, например, у изображений) */
+  /* Фон */
+  background-image: url("../img/fon/les.png"); /* Устанавливает фоновое изображение */
+  background-size: cover; /* Масштабирует фон так, чтобы он полностью покрывал body */
+  background-position: center; /* Центрирует изображение фона */
+  background-attachment: fixed; /* Фиксирует фон при прокрутке (эффект параллакса) */
+
+  /* Текст и шрифты */
+  font-family:
+    Arial, sans-serif; /* Устанавливает основной шрифт Arial, с запасным sans-serif */
+  color: white; /* Белый цвет текста */
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.8); /* Тень для текста, повышает читаемость на фоне */
+
+  /* Прокрутка и макет */
+  overflow-x: hidden; /* Скрывает горизонтальный скролл, если контент выходит за пределы */
+  display: flex; /* Включает Flexbox для удобного расположения дочерних элементов */
+  flex-direction: column; /* Располагает дочерние элементы вертикально (колонкой) */
+  min-height: 100vh; /* Минимальная высота body равна высоте видимой части окна */
 }
 
 /* === ШАПКА === */
+/* Стили для верхней навигационной панели */
 .top-nav {
-  display: flex; /* Включает Flexbox для упрощённого выравнивания дочерних элементов */
-  justify-content: space-between; /* Распределяет дочерние элементы равномерно с максимальным расстоянием между ними */
-  align-items: center; /* Выравнивает дочерние элементы по центру по вертикали */
-  height: 60px;
-  padding: 4vw 2vw 2vw 4.5vw; /* Внутренние отступы: 20px сверху/снизу, 60px слева/справа */
-  box-sizing: border-box; /* Включает padding и border в расчёт ширины/высоты элемента */
-  position: relative; /* Позволяет позиционировать дочерние элементы относительно этого элемента */
+  display: flex; /* Включает Flexbox для удобного расположения и выравнивания дочерних элементов */
+  justify-content: space-between; /* Распределяет дочерние элементы так, чтобы первый был слева, последний — справа, с равными промежутками */
+  align-items: center; /* Выравнивает дочерние элементы по вертикали по центру контейнера */
+  height: 60px; /* Задаёт фиксированную высоту панели навигации */
+
+  /* Внутренние отступы: top right bottom left */
+  padding: 4vw 2vw 2vw 4.5vw; /* Отступы внутри панели, адаптивные через vw (от ширины экрана) */
+
+  box-sizing: border-box; /* Включает padding и border в расчёт ширины и высоты элемента */
+  position: relative; /* Позволяет позиционировать дочерние элементы относительно этого блока */
   margin: 0 0 0 10px; /* Внешние отступы: сверху 0, справа 0, снизу 0, слева 10px */
 }
 
-/* Меню стандартное */
+/* === Меню навигации === */
 .menu {
-  display: flex; /* Включает Flexbox для элемента, чтобы его дочерние элементы располагались в ряд (по умолчанию) */
-  gap: 11vw; /* Устанавливает расстояние в 150px между всеми дочерними элементами */
+  display: flex; /* Включает Flexbox, дочерние элементы (ссылки) располагаются в ряд по горизонтали */
+  gap: 11vw; /* Расстояние между элементами меню. Используется vw — адаптивно к ширине экрана (~150px на больших экранах) */
 }
 
+/* Стили для ссылок внутри меню */
 .menu a {
-  font-size: clamp(12px, 1.2vw, 35px); /* Размер текста 18 пикселей */
-  letter-spacing: 0.2vw;
-  font-weight: 600;
-  color: white; /* Цвет текста белый */
-  text-decoration: none; /* Убирает подчеркивание (обычно для ссылок) */
-  transition: 0.3s; /* Добавляет плавный переход для всех анимируемых свойств за 0.3 секунды */
+  font-size: clamp(
+    12px,
+    1.2vw,
+    35px
+  ); /* Размер шрифта адаптивный: минимум 12px, максимум 35px, масштабируется по ширине экрана */
+  letter-spacing: 0.2vw; /* Расстояние между буквами, адаптивно к ширине экрана */
+  font-weight: 600; /* Полужирный текст */
+  color: white; /* Белый цвет текста */
+  text-decoration: none; /* Убирает стандартное подчеркивание ссылок */
+  transition: 0.3s; /* Плавный переход всех изменяемых свойств (например, opacity) за 0.3 секунды */
 }
 
+/* Эффект при наведении на ссылку */
 .menu a:hover {
-  opacity: 0.7; /* Устанавливает прозрачность элемента: 0.7 = 70% видимости (30% прозрачности) */
+  opacity: 0.7; /* При наведении ссылка становится прозрачной на 30% (70% видимости) */
 }
 
+/* === Логотип === */
 .logo-container img {
-  height: 6vw; /* Устанавливает высоту элемента (например, изображения) 110px */
-  object-fit: contain; /* Масштабирует содержимое так, чтобы оно полностью помещалось в контейнер и сохраняло пропорции */
+  height: 6vw; /* Высота изображения зависит от ширины окна (vw).
+                         Значение адаптивное — меняется при изменении размера экрана */
+  object-fit: contain; /* Масштабирует изображение так, чтобы оно полностью помещалось
+                          в контейнер и сохраняло свои пропорции */
   margin-left: 60px; /* Добавляет внешний отступ слева 60px */
 }
 
-/* Бургер меню для мобильных */
-.burger {
-  display: none; /* Скрывает элемент (он полностью убирается из потока страницы) */
+/* === Бургер-меню для мобильных устройств === */
+.burger,
+.menu-burger {
+  display: none; /* Полностью скрывает элементы.
+                    Они не отображаются и не занимают место в потоке документа */
 }
 
 /* === HERO === */
+
+/* Скрытые hero-блоки (возможно используются для адаптива) */
+.hero-block {
+  display: none; /* Элемент полностью скрыт и не занимает место в документе */
+}
+
+.hero-media-block2 {
+  display: none; /* Также скрыт (может включаться через @media-запросы) */
+}
+
+/* === Основной hero-блок === */
 .hero {
-  display: flex; /* Включает Flexbox */
-  align-items: center; /* Выравнивание по вертикали */
-  flex: 1;
-  /* padding-top: 100px; */ /* Внутренний отступ сверху 100px */
-  padding-left: 5vw; /* Внутренний отступ слева 50px */
-  padding-right: 5vw; /* Внутренний отступ справа 50px */
+  display: flex; /* Включает Flexbox — дочерние элементы располагаются в ряд */
+  flex: 1; /* Занимает всё доступное пространство внутри родителя (если родитель flex-контейнер) */
+  padding-left: 5vw; /* Внутренний отступ слева (адаптивный, зависит от ширины экрана) */
+  padding-right: 5vw; /* Внутренний отступ справа */
   margin: 0; /* Убирает внешние отступы */
 }
 
+/* Текстовая часть hero-блока */
 .hero-text {
-  flex: 0.6;
-  width: 100%; /* Устанавливает ширину элемента равной 100% ширины родителя */
-  max-width: none; /* Убирает ограничение максимальной ширины (если оно было задано ранее) */
+  flex: 1; /* Занимает равную долю пространства внутри .hero */
+  width: 100%; /* Ширина 100% от родительского контейнера */
+  max-width: none; /* Убирает возможное ограничение максимальной ширины */
 }
 
-.main-title-media {
-  display: none; /* Полностью скрывает элемент — он не отображается и не занимает место в документе */
-}
-
+/* Главный заголовок */
 .hero-text h1 {
-  font-size: clamp(65px, 5vw, 140px);
-  letter-spacing: 1vw;
-  margin: 2vw 0 1vw -0.3vw;
+  font-size: clamp(
+    30px,
+    5vw,
+    100px
+  ); /* Адаптивный размер:
+                                         минимум 65px,
+                                         масштабируется от ширины экрана,
+                                         максимум 140px */
+  letter-spacing: 1vw; /* Расстояние между буквами (адаптивное) */
+  margin: 2vw 0 1vw -0.3vw; /* Отступы: сверху, справа, снизу, слева */
 }
 
+/* Подзаголовок */
 .hero-text h2 {
-  font-size: clamp(10px, 1.55vw, 100px);
-  margin: 10px 0 2.5vw 0;
+  font-size: clamp(10px, 1.55vw, 80px); /* Адаптивный размер шрифта */
+  margin: 10px 0 2.5vw 0; /* Отступы вокруг элемента */
 }
 
+/* Основной текст */
 .hero-text p {
-  font-size: clamp(10px, 1.3vw, 90px);
-  width: 85%;
-  line-height: 1.5; /* Межстрочный интервал — 1.8 от размера шрифта (улучшает читаемость) */
-  text-align: justify; /* Выравнивает текст по ширине (по левому и правому краю) */
-  text-justify: inter-word; /* Распределяет пробелы между словами для выравнивания текста */
-  margin: 0px 0 100px 0; /* Убирает нижний внешний отступ */
+  font-size: clamp(10px, 1.3vw, 90px); /* Адаптивный размер текста */
+  width: 75%; /* Абзац занимает 75% ширины контейнера */
+  line-height: 1.5; /* Межстрочный интервал — 1.5 от размера шрифта */
+  text-align: justify; /* Выравнивание текста по ширине */
+  text-justify: inter-word; /* Распределяет пробелы между словами для ровного края */
 }
-
-/* !!!ПЕРЕДЕЛАТЬ НА КОЛОНКИ!!! */
-
+/* === Медиа-блок в hero-секции === */
 .hero-media {
-  display: flex;
-  flex: 0.5;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 40px;
+  display: flex; /* Включает Flexbox */
+  flex: 0.5; /* Занимает половину доступного пространства
+                             относительно других flex-элементов */
+  flex-direction: column; /* Располагает дочерние элементы вертикально */
+  align-items: center; /* Выравнивает элементы по горизонтали по центру */
+  padding-bottom: 40px; /* Добавляет внутренний отступ снизу */
 }
+
+/* Стили для изображения внутри hero-media */
 .hero-media img {
-  display: block; /* Делает элемент блочным (занимает всю доступную ширину по умолчанию) */
-  width: 100%; /* Устанавливает ширину элемента 100% от ширины родителя */
-  max-width: 1200px;
-  margin-top: -120px;
+  display: block; /* Убирает строчное поведение изображения и лишние отступы снизу */
+  width: 120%; /* Делает изображение шире родителя (на 20%) —
+                         создаёт эффект "выхода за границы" */
+  height: auto; /* Сохраняет пропорции изображения */
+  max-width: 1200px; /* Ограничивает максимальную ширину изображения */
+  margin: -2vw 0 0 -10vw; /* Смещает изображение:
+                             сверху немного вверх (отрицательный margin),
+                             слева — сильнее влево */
 }
 
-/* === КНОПКА "В НАЛИЧИИ" === */
+/* === КНОПКА "Заказать" === */
+/* === Кнопка "Availability" === */
 .availability-btn {
-  margin-left: -4vw;
-  margin-top: -7.5vw;
-  padding: 1.3vw 3vw; /* Внутренние отступы: 15px сверху/снизу, 40px слева/справа */
-  font-size: clamp(12px, 1.2vw, 35px); /* Размер текста 18 пикселей */
-  letter-spacing: 0.2vw;
-  font-weight: bold; /* Жирное начертание текста */
-  color: white; /* Белый цвет текста */
-  text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.8); /* Тень текста для лучшей читаемости */
-  background: rgba(255, 255, 255, 0.2); /* Полупрозрачный белый фон */
-  backdrop-filter: blur(
-    6px
-  ); /* Размытие фона позади элемента (эффект "стекла") */
+  margin-left: -13vw; /* Смещает кнопку влево относительно её обычного положения */
+  margin-top: -7vw; /* Смещает кнопку вверх */
 
-  border-radius: 50px; /* Сильно скругляет углы (кнопка-капсула) */
-  border: 1px solid rgba(255, 255, 255, 0.4); /* Полупрозрачная белая рамка */
-  cursor: pointer; /* Курсор в виде руки при наведении */
-  transition: 0.3s; /* Плавная анимация изменений (например, при hover) */
-  z-index: 10; /* Поднимает элемент поверх других с меньшим z-index */
+  padding: 1.3vw 3vw; /* Внутренние отступы (адаптивные, зависят от ширины экрана) */
+
+  font-size: clamp(
+    12px,
+    1.2vw,
+    35px
+  ); /* Адаптивный размер текста:
+                                          минимум — 12px,
+                                          динамический — 1.2vw,
+                                          максимум — 35px */
+  letter-spacing: 0.2vw; /* Расстояние между буквами (адаптивное) */
+  font-weight: bold; /* Жирное начертание */
+  color: white; /* Белый цвет текста */
+  text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.8); /* Тень для читаемости на светлом фоне */
+
+  background: rgba(255, 255, 255, 0.2); /* Полупрозрачный фон */
+  backdrop-filter: blur(6px); /* Эффект размытия заднего фона (glassmorphism) */
+
+  border-radius: 50px; /* Сильное скругление — форма "капсулы" */
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Полупрозрачная рамка */
+
+  cursor: pointer; /* Курсор-указатель при наведении */
+  transition: 0.3s; /* Плавная анимация всех изменяемых свойств */
+
+  position: relative; /* Делает элемент позиционируемым
+                         (теперь z-index будет работать корректно) */
+  z-index: 10; /* Поднимает кнопку выше элементов с меньшим z-index */
 }
 
+/* Эффект при наведении */
 .availability-btn:hover {
   background: rgba(
     255,
     255,
     255,
     0.25
-  ); /* Полупрозрачный белый фон (25% непрозрачности) */
-  transform: scale(
-    1.05
-  ); /* Увеличивает элемент на 5% относительно его исходного размера */
+  ); /* Немного увеличиваем непрозрачность фона */
+  transform: scale(1.05); /* Увеличение размера кнопки на 5% */
 }
 
-/* === ПОДВАЛ === */
 /* ================= FOOTER ================= */
 
+.footer-table {
+  display: none;
+}
 .footer {
   background: linear-gradient(
     to bottom,
@@ -181,6 +234,7 @@ img {
   backdrop-filter: blur(10px);
   color: white;
   padding: 40px 20px 20px;
+  margin-top: 100px;
 }
 
 .footer-center {
@@ -322,7 +376,8 @@ footer.highlight {
 ===============
 */
 
-@media (max-width: 768px) {
+/* Футер для телефона */
+@media (max-width: 560px) {
   .footer-inner {
     flex-direction: column;
     align-items: center;
@@ -333,73 +388,126 @@ footer.highlight {
   .footer-copy {
     text-align: center;
   }
+
+  .footer-title {
+  font-size: clamp(5px, 3.5vw, 12px);
+  margin-bottom: 10px;
+}
+.footer-title-info {
+  font-size: clamp(5px, 3.5vw, 12px);
+  margin-bottom: 3px;
 }
 
-/* Скрываем бургер на десктопе */
-/* Бургер меню для мобильных */
+.phone-mobile,
+.phone-desktop {
+  font-size: clamp(3px, 2.5vw, 10px);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.social-icons img {
+  width: clamp(25px, 5vw, 35px);
+}
+
+.footer-right a {
+  font-size: clamp(3px, 2.5vw, 10px);
+}
+
+/* Копирайт */
+.footer-copy {
+  font-size: clamp(8px, 2vw, 10px);
+}
+
+}
+
+/* Бургер меню для телефона */
 @media (max-width: 630px) {
-.burger {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        top: 35px;
-        left: 20px;
-    }
+  .burger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 
-    .burger-lines {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-    }
+  .burger-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
 
-    .burger-lines span {
-        width: 26px;
-        height: 3px;
-        background: white;
-        border-radius: 2px;
-    }
+  .burger-lines span {
+    width: clamp(18px, 4vw, 26px);
+    height: clamp(3px, 0.5vw, 5px);
+    background: white;
+    border-radius: 2px;
+    transform-origin: center;
+    transition: all 0.3s ease;
+  }
 
-    .burger-text {
-        font-size: 14px;
-        letter-spacing: 2px;
-        font-weight: 600;
-        color: white;
-    }
-    .hero{
-      position: relative;
-    }
+  /* Когда бургер активен */
+  .burger.active .burger-lines span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .burger.active .burger-lines span:nth-child(2) {
+    opacity: 0;
+  }
+  .burger.active .burger-lines span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
 
-    .menu {
-        display: none;
-        width: 95%;
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.2));
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
-        gap: 15px;
-        margin-top: 200px;
-    }
+  .burger-text {
+    font-size: clamp(12px, 3vw, 18px);
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: white;
+  }
 
-    .menu.active {
-        display: flex;
-    }
+  .top-nav {
+    padding: 5vw 2vw 0 5vw; /* Внутренние отступы: 20px сверху/снизу, 60px слева/справа */
+    margin: 0 0 0 0;
+  }
 
+  .logo-container img {
+    width: 14vw;
+    height: auto;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .menu-burger a {
+    font-size: clamp(8px, 2.6vw, 35px);
+    width: 100%;
+    padding: 10px;
+    gap: 20px;
+    color: rgb(255, 255, 255);
+  }
+
+  .menu-burger.active {
+    display: flex;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.45),
+      rgba(255, 255, 255, 0.2)
+    );
+    backdrop-filter: blur(10px);
+    margin: 3vw 5vw 2vw 5vw;
+    flex-direction: column;
+  }
+
+  .hero {
+    position: relative;
+    margin-top: 2vw;
+  }
 }
-
-
-
-
-
-
 
 /* 
-===============
-   АДАПТАЦИЯ 2
-===============
+========================
+    (ХЗ НУЖНО ЛИ!!!)
+========================
 */
-
-
+/* Адаптация 1199-992. Размер текса в меню и заголовка h1.*/
 @media (min-width: 992px) and (max-width: 1199px) {
   .menu a {
     font-size: clamp(12px, 1.3vw, 35px); /* Размер текста 18 пикселей */
@@ -409,30 +517,198 @@ footer.highlight {
   }
 }
 
+/* Адаптация 690-631.*/
 @media (min-width: 631px) and (max-width: 690px) {
   .menu {
-  gap: 6.5vw; /* Устанавливает расстояние в 150px между всеми дочерними элементами */
+    gap: 6.5vw; /* Устанавливает расстояние в 150px между всеми дочерними элементами */
+  }
+
+  .logo-container img {
+    height: 9vw; /* Устанавливает высоту элемента (например, изображения) 110px */
+  }
 }
 
-.logo-container img {
-  height: 9vw; /* Устанавливает высоту элемента (например, изображения) 110px */
+/* Делаем слева текст, справа фото, снизу текст */
+@media (min-width: 50px) and (max-width: 630px) {
+  .hero {
+    display: none;
+  }
+  .hero-block {
+    display: flex; /* Включает Flexbox */
+    padding-left: 5vw; /* Внутренний отступ слева 50px */
+    padding-right: 5vw; /* Внутренний отступ справа 50px */
+    margin: 0; /* Убирает внешние отступы */
+    margin-top: 10vw;
+  }
+  .hero-media-block2 {
+    display: flex;
+  }
+
+  .hero-text-block {
+    flex: 1.5;
+    width: 100%; /* Устанавливает ширину элемента равной 100% ширины родителя */
+    max-width: none; /* Убирает ограничение максимальной ширины (если оно было задано ранее) */
+  }
+
+  .hero-text-block h1 {
+    font-size: clamp(20px, 6vw, 40px);
+    letter-spacing: 1vw;
+    margin: -3vw 0 1vw -0.3vw;
+  }
+
+  .hero-text-block h2 {
+    font-size: clamp(8px, 2vw, 30px);
+    margin: 10px 0 2.5vw 0;
+  }
+
+  .hero-text-block p {
+    font-size: clamp(5px, 2vw, 15px);
+    width: 75%;
+    line-height: 1.5; /* Межстрочный интервал — 1.8 от размера шрифта (улучшает читаемость) */
+    text-align: justify; /* Выравнивает текст по ширине (по левому и правому краю) */
+    text-justify: inter-word; /* Распределяет пробелы между словами для выравнивания текста */
+  }
+
+  .hero-media-block {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-media-block img {
+    display: block; /* Делает элемент блочным (занимает всю доступную ширину по умолчанию) */
+    width: 80%; /* Устанавливает ширину элемента 100% от ширины родителя */
+    height: auto;
+    max-width: 1200px;
+    margin: -8vw 0 0 -6vw;
+  }
+  .availability-btn {
+    display: none;
+  }
+  .hero-media-block2 {
+    font-size: clamp(5px, 2vw, 15px);
+    width: 100%;
+    padding-left: 5vw; /* Внутренний отступ слева 50px */
+    padding-right: 5vw; /* Внутренний отступ справа 50px */
+    line-height: 1.5; /* Межстрочный интервал — 1.8 от размера шрифта (улучшает читаемость) */
+    text-align: justify; /* Выравнивает текст по ширине (по левому и правому краю) */
+    text-justify: inter-word; /* Распределяет пробелы между словами для выравнивания текста */
+    margin-top: -4vw;
+    flex: 1;
+  }
 }
 
-/* .hero-text{
-  display: none;
+/* Подгон отступов */
+@media (min-width: 271px) and (max-width: 320px){
+    .hero-media-block img {
+    margin: -8vw -5vw 0 -6vw;
+  }
+    .hero-media-block2 {
+    margin-top: -1vw;
+  }
 }
 
-.hero-text-media{
-  display: block;
-}
-.m{
-  display: flex;
-}
-.hero-image{
-  display: none;
-}
+/* Адаптация подвала для планшета (2 колоки) */
+@media (min-width: 561px) and (max-width: 690px) {
+  .footer {
+    display: none;
+  }
+  /* ================= FOOTER ================= */
 
-.hero-image-media{
-  display: block;
-} */
+  .footer-table {
+    display: flex;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.45),
+      rgba(255, 255, 255, 0.2)
+    );
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 40px 20px 20px;
+    margin-top: 50px;
+  }
+
+  .footer-left-table {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .container-table {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .footer-inner-table {
+    display: flex;
+    justify-content: space-between;
+    gap: 15vw;
+    margin-bottom: 40px;
+  }
+
+  .footer-title-table {
+    font-size: clamp(14px, 1vw, 18px);
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+  }
+  .footer-title-info-table {
+    font-size: clamp(14px, 1vw, 18px);
+    font-weight: 700;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+  }
+
+  /* Соцсети */
+  .social-icons-table a {
+    color: white;
+    font-size: clamp(10px, 1vw, 20px);
+  }
+  .social-icons-table {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.5vw;
+    padding: 0;
+    margin: 0;
+  }
+
+  .social-icons-table img {
+    width: clamp(24px, 3vw, 40px);
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+
+  .social-icons-table img:hover {
+    transform: scale(1.15);
+  }
+
+  /* Документы */
+  .footer-right-table {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: 700;
+  }
+
+  .footer-right-table a {
+    color: #fff;
+    text-decoration: none;
+    font-size: clamp(10px, 0.9vw, 40px);
+  }
+
+  .footer-right-table a:hover {
+    text-decoration: underline;
+  }
+
+  /* Копирайт */
+  .footer-copy-table {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    font-size: clamp(10px, 0.9vw, 40px);
+    opacity: 0.8;
+  }
 }

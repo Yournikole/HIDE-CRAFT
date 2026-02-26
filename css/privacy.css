@@ -74,33 +74,32 @@ img {
 }
 
 /* Бургер меню для мобильных */
-.burger {
+.burger,
+.menu-burger {
   display: none; /* Скрывает элемент (он полностью убирается из потока страницы) */
 }
-
 /* === HERO === */
 /* === ТЕКСТ ПОЛИТИКИ КОНФИДЕНЦИАЛЬНОСТИ === */
 .privacy-content {
-          /* ограничивает ширину текста */
-    margin: 50px;        /* центрирует блок по горизонтали и отступ сверху */
-    padding: 0 20px;          /* внутренние отступы слева и справа */
-    line-height: 1.6;         /* межстрочный интервал */
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    color: white;
-    text-align: justify;
-    text-justify: inter-word;
+  padding-left: 5vw; /* Внутренний отступ слева 50px */
+  padding-right: 5vw; /* Внутренний отступ справа 50px */
+  line-height: 1.6; /* межстрочный интервал */
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .privacy-content h1 {
-    margin-bottom: 30px;
-
+  margin-bottom: 30px;
+  font-size: clamp(20px, 5vw, 120px);
+  margin: 2vw 0 1vw -0.3vw;          /* Отступы: сверху, справа, снизу, слева */
 }
 
 .privacy-content p {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
+  font-size: clamp(10px, 1.3vw, 90px);
 }
-
 
 /* === ПОДВАЛ === */
 
@@ -248,361 +247,69 @@ footer.highlight {
   }
 }
 
-
-/* === АДАПТИВНОСТЬ === */
-@media (max-width: 768px) {
-    .footer-inner {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
-
-    .footer-left, .footer-center, .footer-right {
-        text-align: center;
-    }
-
-    .footer-right {
-        align-items: center;
-    }
-}
-/* === АДАПТИВНОСТЬ === */
-/*@media (max-width: 768px) {
-    .main-title h1 { font-size: 60px; }
-    .sub-content h2 { font-size: 24px; }
-    .description { font-size: 18px; }
-    .social-icons img { width: 35px; height: 35px; }
-}
-
-@media (max-width: 480px) {
-    .main-title h1 { font-size: 40px; }
-    .sub-content h2 { font-size: 20px; }
-    .description { font-size: 16px; }
-    .social-icons img { width: 30px; height: 30px; }
-}*/
-/* Устанавливаем общий шрифт и размер для всех колонок подвала */
-.footer-left, .footer-center, .footer-right {
-    font-family: Arial, sans-serif; /* единый шрифт */
-    font-size: 16px;                /* единый размер */
-    font-weight: 400;               /* обычная толщина текста */
-    color: white;
-    line-height: 1.5;               /* одинаковый межстрочный интервал */
-}
-
-/* Для ссылок в правой колонке */
-.footer-right a {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    color: white;
-    text-decoration: none;
-}
-
-/* Чтобы заголовки вроде "КОНТАКТЫ:" и "МЫ В СОЦСЕТЯХ:" не были жирными сами по себе */
-.footer-left p:first-child,
-.footer-center p:first-child {
-    font-weight: 400; /* нормальная толщина */
-}
-/* === АДАПТИВНОСТЬ === */
-
-/* ===== 1024px ===== */
-@media (max-width: 1024px) and (min-width: 769px) {
-    .hero {
-        flex-direction: column;
-    }
-
-    .main-title {
-        width: 100%;
-    }
-
-    .movable-image img {
-        width: 250px;
-        margin: -565px 0 0 630px;
-        display: block;
-    }
-
-    .hero p {
-        width: 90%;
-    }
-
-    .availability-btn {
-        position: static !important;
-        display: block;
-        width: fit-content;
-        margin: 330px auto 0 auto;
-        text-align: center;
-        transform: none !important;
-    }
-
-    .menu {
-        gap: 90px;
-    }
-
-    .footer-center {
-        margin-left: -100px;
-        text-align: center;
-    }
-}
-
-/* ===== 768px ===== */
-@media (max-width: 768px) and (min-width: 667px) {
-    .main-title-media h1 {
-        font-size: 54px;
-        white-space: nowrap;
-    }
-    .menu {
-        gap: 40px;
-        font-size: 14px;
-    }
-.main-title{
-    display: none;
-}
-.main-title-media{
-    display: block;
-}
-.m {
-    width: 50%;
-}
-    .logo-container img {
-        height: 90px;
-        margin-left: 0;
-        margin-bottom: 10px;
-    }
-
-   /* .movable-image img {
-        position: absolute;
-        width: 55%;
-        margin: auto;
-        display: block;
-        top: -25px;
-        margin-top: clamp(-25px, 8vw, 20px);
-        left: 50%;
-    }*/
-    .movable-image img {
-        position: absolute;
-        width: 55%;
-        left: 75%;
-        transform: translateX(-50%);
-        top: clamp(-15px, 5vw, 120px);
-
-        /* ВАЖНО */
-        margin: 0;
-    }
-
-    .availability-btn {
-        display: none !important;
-    }
-
-    .footer-inner {
-        justify-content: flex-start;
-        padding-left: 20px;
-        gap: 20px;
-    }
-
-    .footer-left,
-    .footer-center,
-    .footer-right {
-        text-align: left;
-    }
-
-    .footer-center {
-        margin: 0;
-        text-align: center;
-    }
-
-    .footer-center .social-icons {
-        margin-top: 5px;
-    }
-}
-@media (max-width:666px) and (min-width: 481px){
-
-}
-
-
-/* ===== 480px ===== */
+/* Бургер меню для мобильных */
 @media (max-width: 630px) {
-      body {
-        background-image: url('les-mobile.png');
-        background-size: cover;
-        background-position: center;
-        background-attachment: scroll; 
-       }
-   .privacy-content {
-        padding-left: 5px;
-        padding-right: 5px;
-    }
+  .burger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 
-    .privacy-content h1 {
-        font-size: 20px;
-    }
+  .burger-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
 
-    .privacy-content h1 {
-        font-size: clamp(10px, 10vw, 25px);
-        line-height: 1.1;
-        overflow-wrap: normal;
-    }
+  .burger-lines span {
+    width: clamp(15px, 4vw, 26px);
+    height: clamp(3px, 0.5vw, 5px);
+    background: white;
+    border-radius: 2px;
+  }
 
-    .hero h2 {
-        font-size: 24px;
-    }
+  .burger-text {
+    font-size: clamp(8px, 3vw, 18px);
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: white;
+  }
 
-    .hero p {
-        padding-left: 15px;
-        padding-right: -5px;
-        text-align: justify;
-    }
+  .top-nav {
+    padding: 5vw 2vw 0 5vw; /* Внутренние отступы: 20px сверху/снизу, 60px слева/справа */
+    margin: 0 0 0 0;
+  }
+  .hero {
+    position: relative;
+    margin-top: 2vw;
+  }
 
-    .main-title {
-        width: 100%;
-        max-width: none;
-        margin: 0;
-    }
+  .logo-container img {
+    width: 12vw;
+    height: auto;
+  }
 
-    .logo-container {
-        position: absolute;
-        right: 20px;
-        top: 15px;
-    }
+  .menu {
+    display: none;
+  }
 
-    .logo-container img {
-        height: 70px;
-        margin-bottom: 0;
-    }
+  .menu-burger a {
+    font-size: clamp(8px, 2.6vw, 35px);
+    width: 100%;
+    padding: 10px;
+    gap: 20px;
+    color: rgb(255, 255, 255);
+  }
 
-    .top-nav {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 15px 20px;
-    }
-
-    .burger {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        position: absolute;
-        top: 35px;
-        left: 20px;
-    }
-
-    .burger-lines {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-    }
-
-    .burger-lines span {
-        width: 26px;
-        height: 3px;
-        background: white;
-        border-radius: 2px;
-    }
-
-    .burger-text {
-        font-size: 14px;
-        letter-spacing: 2px;
-        font-weight: 600;
-        color: white;
-    }
-
-    .menu {
-        display: none;
-        width: 90%;
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.2));
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
-        gap: 15px;
-        position: static;
-        margin-top: 60px;
-    }
-
-    .menu.active {
-        display: flex;
-    }
-
-    .hero {
-        padding-left: 5px;
-        padding-right: 10px;
-    }
-
-    
-
-    .description-wrapper p {
-        text-align: justify;
-    }
-
-    .movable-image img {
-        position: relative;
-        width: 95%;
-        margin: -20px auto 0 auto;
-        display: block;
-    }
-
-
-    /* ВЕСЬ ПОДВАЛ — ЦЕНТР */
-    .footer-inner {
-        flex-direction: column;
-        align-items: center;
-        padding-left: 20px;
-        padding-right: 20px;
-        gap: 8px;
-        text-align: center;
-    }
-
-    .footer-inner {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        /* ← уменьшаем расстояние */
-    }
-
-    /* Убираем лишние отступы у колонок */
-    .footer-left,
-    .footer-center,
-    .footer-right {
-        flex: none;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-    }
-
-    /* Убираем лишние margin у текста */
-    .footer-left p,
-    .footer-center p,
-    .footer-right p {
-        margin: 4px 0;
-    }
-
-    /* ВТОРОЙ БЛОК — ССЫЛКИ */
-    .footer-right {
-        width: 100%;
-        text-align: center;
-        margin-top: 8px;
-    }
-
-    /* Блок с политиками — в столбик */
-    .footer-right {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-        /* расстояние между пунктами */
-    }
-
-    /* Ссылки — каждая с новой строки */
-    .footer-right a {
-        display: block;
-        margin: 0;
-    }
-}
-
-/* ===== 360px ===== */
-@media (max-width: 360px) {
-    .main-title h1 {
-        font-size: 50px;
-    }
-
-    .main-title h2 {
-        font-size: 20px;
-    }
+  .menu-burger.active {
+    display: flex;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.45),
+      rgba(255, 255, 255, 0.2)
+    );
+    backdrop-filter: blur(10px);
+    margin: 3vw 5vw 2vw 5vw;
+    flex-direction: column;
+  }
 }
