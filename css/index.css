@@ -12,6 +12,7 @@ body {
 
 /* === ГЛОБАЛЬНЫЕ СТИЛИ === */
 * {
+  /* outline: 1px solid red;  */
   box-sizing: border-box; /* Включает расчёт ширины и высоты элементов с учётом padding и border.
                              Это упрощает верстку и делает размеры элементов более предсказуемыми */
 }
@@ -108,6 +109,10 @@ body {
   display: none; /* Также скрыт (может включаться через @media-запросы) */
 }
 
+.hero-h1-block {
+  display: none;
+}
+
 /* === Основной hero-блок === */
 .hero {
   display: flex; /* Включает Flexbox — дочерние элементы располагаются в ряд */
@@ -127,7 +132,7 @@ body {
 /* Главный заголовок */
 .hero-text h1 {
   font-size: clamp(
-    30px,
+    60px,
     5vw,
     100px
   ); /* Адаптивный размер:
@@ -140,13 +145,13 @@ body {
 
 /* Подзаголовок */
 .hero-text h2 {
-  font-size: clamp(10px, 1.55vw, 80px); /* Адаптивный размер шрифта */
+  font-size: clamp(20px, 1.55vw, 80px); /* Адаптивный размер шрифта */
   margin: 10px 0 2.5vw 0; /* Отступы вокруг элемента */
 }
 
 /* Основной текст */
 .hero-text p {
-  font-size: clamp(10px, 1.3vw, 90px); /* Адаптивный размер текста */
+  font-size: clamp(15px, 1.3vw, 90px); /* Адаптивный размер текста */
   width: 75%; /* Абзац занимает 75% ширины контейнера */
   line-height: 1.5; /* Межстрочный интервал — 1.5 от размера шрифта */
   text-align: justify; /* Выравнивание текста по ширине */
@@ -234,7 +239,7 @@ body {
   backdrop-filter: blur(10px);
   color: white;
   padding: 40px 20px 20px;
-  margin-top: 100px;
+  margin-top: 5vw;
 }
 
 .footer-center {
@@ -378,6 +383,10 @@ footer.highlight {
 
 /* Футер для телефона */
 @media (max-width: 560px) {
+  .footer {
+    margin-top: 15vw;
+  }
+
   .footer-inner {
     flex-direction: column;
     align-items: center;
@@ -390,35 +399,34 @@ footer.highlight {
   }
 
   .footer-title {
-  font-size: clamp(5px, 3.5vw, 12px);
-  margin-bottom: 10px;
-}
-.footer-title-info {
-  font-size: clamp(5px, 3.5vw, 12px);
-  margin-bottom: 3px;
-}
+    font-size: clamp(5px, 3.5vw, 12px);
+    margin-bottom: 10px;
+  }
+  .footer-title-info {
+    font-size: clamp(5px, 3.5vw, 12px);
+    margin-bottom: 3px;
+  }
 
-.phone-mobile,
-.phone-desktop {
-  font-size: clamp(3px, 2.5vw, 10px);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-}
+  .phone-mobile,
+  .phone-desktop {
+    font-size: clamp(3px, 2.5vw, 10px);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+  }
 
-.social-icons img {
-  width: clamp(25px, 5vw, 35px);
-}
+  .social-icons img {
+    width: clamp(25px, 5vw, 35px);
+  }
 
-.footer-right a {
-  font-size: clamp(3px, 2.5vw, 10px);
-}
+  .footer-right a {
+    font-size: clamp(3px, 2.5vw, 10px);
+  }
 
-/* Копирайт */
-.footer-copy {
-  font-size: clamp(8px, 2vw, 10px);
-}
-
+  /* Копирайт */
+  .footer-copy {
+    font-size: clamp(8px, 2vw, 10px);
+  }
 }
 
 /* Бургер меню для телефона */
@@ -529,8 +537,11 @@ footer.highlight {
 }
 
 /* Делаем слева текст, справа фото, снизу текст */
-@media (min-width: 50px) and (max-width: 630px) {
+@media (min-width: 451px) and (max-width: 630px) {
   .hero {
+    display: none;
+  }
+  .hero-text-block h1 {
     display: none;
   }
   .hero-block {
@@ -538,7 +549,6 @@ footer.highlight {
     padding-left: 5vw; /* Внутренний отступ слева 50px */
     padding-right: 5vw; /* Внутренний отступ справа 50px */
     margin: 0; /* Убирает внешние отступы */
-    margin-top: 10vw;
   }
   .hero-media-block2 {
     display: flex;
@@ -550,20 +560,23 @@ footer.highlight {
     max-width: none; /* Убирает ограничение максимальной ширины (если оно было задано ранее) */
   }
 
-  .hero-text-block h1 {
-    font-size: clamp(20px, 6vw, 40px);
+  .hero-h1-block {
+    display: block;
+    font-size: clamp(60px, 8vw, 90px);
     letter-spacing: 1vw;
-    margin: -3vw 0 1vw -0.3vw;
+    margin: 5vw 0 1vw -0.3vw;
+    padding-left: 5vw; /* Внутренний отступ слева 50px */
+    padding-right: 5vw; /* Внутренний отступ справа 50px */
   }
 
   .hero-text-block h2 {
-    font-size: clamp(8px, 2vw, 30px);
+    font-size: clamp(30px, 6vw, 35px);
     margin: 10px 0 2.5vw 0;
   }
 
   .hero-text-block p {
-    font-size: clamp(5px, 2vw, 15px);
-    width: 75%;
+    font-size: clamp(25px, 1vw, 45px);
+    width: 90%;
     line-height: 1.5; /* Межстрочный интервал — 1.8 от размера шрифта (улучшает читаемость) */
     text-align: justify; /* Выравнивает текст по ширине (по левому и правому краю) */
     text-justify: inter-word; /* Распределяет пробелы между словами для выравнивания текста */
@@ -577,34 +590,129 @@ footer.highlight {
   }
   .hero-media-block img {
     display: block; /* Делает элемент блочным (занимает всю доступную ширину по умолчанию) */
-    width: 80%; /* Устанавливает ширину элемента 100% от ширины родителя */
+    width: 50vw; /* Устанавливает ширину элемента 100% от ширины родителя */
     height: auto;
     max-width: 1200px;
-    margin: -8vw 0 0 -6vw;
+    margin-left: 5vw;
   }
   .availability-btn {
     display: none;
   }
   .hero-media-block2 {
-    font-size: clamp(5px, 2vw, 15px);
+    font-size: clamp(25px, 1vw, 45px);
     width: 100%;
     padding-left: 5vw; /* Внутренний отступ слева 50px */
     padding-right: 5vw; /* Внутренний отступ справа 50px */
     line-height: 1.5; /* Межстрочный интервал — 1.8 от размера шрифта (улучшает читаемость) */
     text-align: justify; /* Выравнивает текст по ширине (по левому и правому краю) */
     text-justify: inter-word; /* Распределяет пробелы между словами для выравнивания текста */
-    margin-top: -4vw;
+    flex: 1;
+  }
+}
+@media (min-width: 451px) and (max-width: 566px) {
+  .hero-media-block img {
+    margin: 8vw 0 0 2vw;
+  }
+  .hero-media-block2 {
+    margin-top: 3vw;
+  }
+}
+
+/* Делаем слева текст, справа фото, снизу текст */
+@media (min-width: 50px) and (max-width: 450px) {
+  .hero {
+    display: none;
+  }
+  .hero-block {
+    display: flex; /* Включает Flexbox */
+    padding-left: 5vw; /* Внутренний отступ слева 50px */
+    padding-right: 5vw; /* Внутренний отступ справа 50px */
+    margin: 0; /* Убирает внешние отступы */
+  }
+  .hero-media-block2 {
+    display: flex;
+  }
+
+  .hero-text-block {
+    flex: 1.4;
+    width: 100%; /* Устанавливает ширину элемента равной 100% ширины родителя */
+    max-width: none; /* Убирает ограничение максимальной ширины (если оно было задано ранее) */
+  }
+
+  .hero-text-block h1 {
+    display: none;
+  }
+  .hero-h1-block {
+    display: block;
+    font-size: clamp(20px, 10vw, 60px);
+    letter-spacing: 1vw;
+    margin: 5vw 0 1vw -0.3vw;
+    padding-left: 5vw; /* Внутренний отступ слева 50px */
+    padding-right: 5vw; /* Внутренний отступ справа 50px */
+  }
+
+  .hero-text-block h2 {
+    font-size: clamp(15px, 4vw, 30px);
+    margin: 10px 0 2.5vw 0;
+    width: 100%;
+    line-height: 1.5;
+  }
+
+  .hero-text-block p {
+    font-size: clamp(10px, 3vw, 20px);
+    width: 80%;
+    line-height: 1.5; /* Межстрочный интервал — 1.8 от размера шрифта (улучшает читаемость) */
+    text-align: justify; /* Выравнивает текст по ширине (по левому и правому краю) */
+    text-justify: inter-word; /* Распределяет пробелы между словами для выравнивания текста */
+  }
+
+  .hero-media-block {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-media-block img {
+    display: block; /* Делает элемент блочным (занимает всю доступную ширину по умолчанию) */
+    width: 110%; /* Устанавливает ширину элемента 100% от ширины родителя */
+    height: auto;
+    max-width: 1200px;
+    margin: -4vw 0 0 0;
+  }
+  .availability-btn {
+    display: none;
+  }
+  .hero-media-block2 {
+    font-size: clamp(10px, 2.5vw, 15px);
+    width: 100%;
+    padding-left: 5vw; /* Внутренний отступ слева 50px */
+    padding-right: 5vw; /* Внутренний отступ справа 50px */
+    line-height: 1.5; /* Межстрочный интервал — 1.8 от размера шрифта (улучшает читаемость) */
+    text-align: justify; /* Выравнивает текст по ширине (по левому и правому краю) */
+    text-justify: inter-word; /* Распределяет пробелы между словами для выравнивания текста */
+    margin-top: -8vw;
     flex: 1;
   }
 }
 
-/* Подгон отступов */
-@media (min-width: 271px) and (max-width: 320px){
-    .hero-media-block img {
-    margin: -8vw -5vw 0 -6vw;
+@media (min-width: 319px) and (max-width: 350px) {
+  .hero-media-block2 {
+    margin-top: -5vw;
   }
-    .hero-media-block2 {
-    margin-top: -1vw;
+}
+
+@media (min-width: 50px) and (max-width: 318px) {
+  .hero-media-block img {
+    margin: 0;
+  }
+  .hero-media-block2 {
+    margin-top: 3vw;
+  }
+}
+
+@media (min-width: 50px) and (max-width: 280px) {
+  .hero-media-block img {
+    margin-top: 55px;
   }
 }
 
