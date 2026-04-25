@@ -5,20 +5,23 @@ document.addEventListener("DOMContentLoaded", function() {
   const footer = document.querySelector('footer');
 
   contactsLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      footer.scrollIntoView({ behavior: 'smooth' });
-      footer.classList.remove('highlight');
-      void footer.offsetWidth; // перезапуск анимации
-      footer.classList.add('highlight');
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
 
-      // Закрываем бургер-меню, если оно открыто
-      const menuBurger = document.querySelector('.menu-burger');
-      if (menuBurger.classList.contains('active')) {
-        menuBurger.classList.remove('active');
-      }
-    });
+    footer.scrollIntoView({ behavior: 'smooth' });
+
+    footer.classList.remove('highlight');
+    void footer.offsetWidth;
+    footer.classList.add('highlight');
+
+    // Закрываем бургер-меню
+    const menu = document.querySelector('.menu-burger');
+    const burger = document.querySelector('.burger');
+
+    menu.classList.remove('active');
+    burger.classList.remove('active');
   });
+});
 
   // Бургер-меню
   const burger = document.querySelector('.burger');
