@@ -544,7 +544,7 @@ footer.highlight {
 
 @media (min-width: 50px) and (max-width: 450px) {
     :root {
-  --columns-count: 2; /* 🔹 СКОЛЬКО ФОТО В РЯДУ (3, 4, 5...) */
+  --columns-count: 1; /* 🔹 СКОЛЬКО ФОТО В РЯДУ (3, 4, 5...) */
   --gap-x: 5vw; /* 🔹 расстояние МЕЖДУ фото по горизонтали */
   --gap-y: 4vw; /* 🔹 расстояние МЕЖДУ фото по вертикали */
 }
@@ -569,10 +569,11 @@ footer.highlight {
 .portfolio-item p {
     font-size: clamp(20px, 2vw, 25px);
     font-weight: 500;
+    margin-bottom: 15vw;
 }
 .back-to-top button {
-  padding: 0.6vw 1.4vw;
-  font-size: clamp(15px, 1vw, 20px);
+  padding: 2vw 2vw;
+  font-size: clamp(20px, 1vw, 25px);
   color: white;
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(6px);
