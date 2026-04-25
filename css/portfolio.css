@@ -543,6 +543,9 @@ footer.highlight {
 }
 
 @media (min-width: 50px) and (max-width: 450px) {
+    body {
+  background-image: url("../img/fon/les-mobile.png"); /* Устанавливает фоновое изображение */
+}
     :root {
   --columns-count: 1; /* 🔹 СКОЛЬКО ФОТО В РЯДУ (3, 4, 5...) */
   --gap-x: 5vw; /* 🔹 расстояние МЕЖДУ фото по горизонтали */

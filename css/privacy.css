@@ -317,6 +317,9 @@ footer.highlight {
 }
 
 @media (min-width: 50px) and (max-width: 450px) {
+    body {
+  background-image: url("../img/fon/les-mobile.png"); /* Устанавливает фоновое изображение */
+}
   .privacy-content h1 {
     font-size: clamp(20px, 5vw, 30px);
     font-weight: 700;

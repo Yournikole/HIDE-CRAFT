@@ -678,6 +678,9 @@ footer.highlight {
 
 /* Делаем слева текст, справа фото, снизу текст */
 @media (min-width: 50px) and (max-width: 450px) {
+  body {
+  background-image: url("../img/fon/les-mobile.png"); /* Устанавливает фоновое изображение */
+}
   .hero {
     display: none;
   }

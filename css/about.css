@@ -342,6 +342,9 @@ footer.highlight {
 }
 
 @media (min-width: 50px) and (max-width: 450px) {
+    body {
+  background-image: url("../img/fon/les-mobile.png"); /* Устанавливает фоновое изображение */
+}
   .hero-text h1{
   display: none;
  }
