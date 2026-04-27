@@ -26,24 +26,38 @@ document.addEventListener("DOMContentLoaded", function() {
     const closeBtn = document.querySelector('.close');
     const leftBtn = document.querySelector('.left');
     const rightBtn = document.querySelector('.right');
+    const lightboxTitle = document.getElementById('lightbox-title');
+const lightboxDesc = document.getElementById('lightbox-desc');
 
     let currentIndex = 0; // Текущий индекс открытого изображения
 
     if (images.length && lightbox && lightboxImg) {
 
         // Клик по изображению — открыть lightbox
-        images.forEach((img, index) => {
-            img.addEventListener('click', () => {
-                currentIndex = index;
-                openLightbox();
-            });
-        });
+images.forEach((img, index) => {
+    img.addEventListener('click', () => {
+        currentIndex = index;
+        updateLightboxContent();
+        openLightbox();
+    });
+});
 
         // Функция открытия lightbox
-        function openLightbox() {
-            lightbox.style.display = 'flex';
-            lightboxImg.src = images[currentIndex].src;
-        }
+function openLightbox() {
+    lightbox.style.display = 'flex';
+    updateLightboxContent();
+}
+        function updateLightboxContent() {
+    const item = images[currentIndex].closest('.portfolio-item');
+
+    const title = item.querySelector('h3')?.textContent;
+    const desc = item.querySelector('p')?.textContent;
+
+    lightboxTitle.textContent = title || '';
+    lightboxDesc.textContent = desc || '';
+
+    lightboxImg.src = images[currentIndex].src;
+}
 
         // Закрытие по кнопке
         closeBtn?.addEventListener('click', () => {
@@ -51,16 +65,15 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         // Переключение влево
-        leftBtn?.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            openLightbox();
-        });
+leftBtn?.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateLightboxContent();
+});
 
-        // Переключение вправо
-        rightBtn?.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % images.length;
-            openLightbox();
-        });
+rightBtn?.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateLightboxContent();
+});
 
         // Закрытие при клике вне картинки
         lightbox.addEventListener('click', e => {
@@ -69,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+    
 
 
     /* =====================================================
