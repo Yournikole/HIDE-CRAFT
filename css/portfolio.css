@@ -205,6 +205,10 @@ body {
 /* ===== ЛАЙТБОКС ===== */
 /* ============================= */
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 .lightbox {
   display: none;
   position: fixed;
@@ -214,6 +218,7 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 999;
+  user-select: none;
 }
 
 
@@ -228,13 +233,27 @@ body {
 /* ===== КНОПКИ ===== */
 /* ============================= */
 
-.lightbox .close {
+.lightbox-top {
   position: absolute;
   top: 30px;
-  right: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.close {
   font-size: 40px;
-  color: white;
+  line-height: 1;
   cursor: pointer;
+  flex-shrink: 0; /* чтобы не сжимался */
+}
+
+.counter {
+  font-size: clamp(18px, 2vw, 25px);
+  line-height: 1;
+  opacity: 0.8;
 }
 
 .arrow {

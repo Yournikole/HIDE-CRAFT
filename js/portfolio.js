@@ -24,10 +24,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const closeBtn = document.querySelector('.close');
-    const leftBtn = document.querySelector('.left');
-    const rightBtn = document.querySelector('.right');
+    const leftBtn = document.querySelector('.arrow.left');
+    const rightBtn = document.querySelector('.arrow.right');
     const lightboxTitle = document.getElementById('lightbox-title');
-const lightboxDesc = document.getElementById('lightbox-desc');
+    const lightboxDesc = document.getElementById('lightbox-desc');
+    const counter = document.getElementById('lightbox-counter');
+    
 
     let currentIndex = 0; // Текущий индекс открытого изображения
 
@@ -35,17 +37,20 @@ const lightboxDesc = document.getElementById('lightbox-desc');
 
         // Клик по изображению — открыть lightbox
 images.forEach((img, index) => {
-    img.addEventListener('click', () => {
-        currentIndex = index;
-        updateLightboxContent();
-        openLightbox();
-    });
+img.addEventListener('click', () => {
+    currentIndex = index;
+    openLightbox();
+});
 });
 
         // Функция открытия lightbox
 function openLightbox() {
     lightbox.style.display = 'flex';
     updateLightboxContent();
+    updateArrows(); // 👈 ВОТ ЭТО КРИТИЧНО
+
+    backToTop.classList.remove('show');
+    document.body.classList.add('no-scroll'); // 👈 блокируем скролл
 }
         function updateLightboxContent() {
     const item = images[currentIndex].closest('.portfolio-item');
@@ -57,31 +62,45 @@ function openLightbox() {
     lightboxDesc.textContent = desc || '';
 
     lightboxImg.src = images[currentIndex].src;
-}
 
-        // Закрытие по кнопке
-        closeBtn?.addEventListener('click', () => {
-            lightbox.style.display = 'none';
-        });
+    counter.textContent = `${currentIndex + 1} / ${images.length}`;
+}
 
         // Переключение влево
 leftBtn?.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    updateLightboxContent();
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateLightboxContent();
+        updateArrows();
+    }
 });
 
 rightBtn?.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % images.length;
-    updateLightboxContent();
+    if (currentIndex < images.length - 1) {
+        currentIndex++;
+        updateLightboxContent();
+        updateArrows();
+    }
 });
 
-        // Закрытие при клике вне картинки
-        lightbox.addEventListener('click', e => {
-            if (e.target === lightbox) {
-                lightbox.style.display = 'none';
-            }
-        });
+function closeLightbox() {
+    lightbox.style.display = 'none';
+    document.body.classList.remove('no-scroll');
+}
+
+closeBtn?.addEventListener('click', closeLightbox);
+
+lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) closeLightbox();
+});
+
+
     }
+
+    function updateArrows() {
+    leftBtn.style.display = currentIndex === 0 ? 'none' : 'block';
+    rightBtn.style.display = currentIndex === images.length - 1 ? 'none' : 'block';
+}
     
 
 
