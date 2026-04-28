@@ -24,6 +24,10 @@ body {
   background-position: center;
   z-index: -1;
 }
+.page-content {
+  position: relative;
+  z-index: 1;
+}
 /* === ФОН И ОСНОВНЫЕ СТИЛИ ДЛЯ BODY === */
 body {
   padding: 0; /* Убирает внутренние отступы body (обычно уже сброшены reset'ом, но это явное указание) */
@@ -594,6 +598,10 @@ footer.highlight {
   background-size: cover;
   background-position: center;
   z-index: -1;
+}
+.page-content {
+  position: relative;
+  z-index: 1;
 }
     :root {
   --columns-count: 1; /* 🔹 СКОЛЬКО ФОТО В РЯДУ (3, 4, 5...) */
