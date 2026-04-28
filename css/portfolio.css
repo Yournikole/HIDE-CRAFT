@@ -16,24 +16,16 @@ body {
   /* outline: 1px solid red; */ /* Используется для отладки — показывает границы всех элементов */
   box-sizing: border-box; /* Включает padding и border в итоговые размеры элемента (удобнее для верстки) */
 }
-.page-bg {
-  position: fixed;
-  inset: 0;
-  background-image: url("../img/fon/les.png");
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-}
-.page-content {
-  position: relative;
-  z-index: 1;
-}
+
 /* === ФОН И ОСНОВНЫЕ СТИЛИ ДЛЯ BODY === */
 body {
   padding: 0; /* Убирает внутренние отступы body (обычно уже сброшены reset'ом, но это явное указание) */
 
   /* Фон */
-  
+  background-image: url("../img/fon/les.png"); /* Устанавливает фоновое изображение */
+  background-size: cover; /* Масштабирует изображение, чтобы оно полностью покрывало экран */
+  background-position: center; /* Центрирует фон по горизонтали и вертикали */
+  background-attachment: fixed; /* Делает фон неподвижным при прокрутке (эффект параллакса) */
 
   /* Текст и шрифты */
   font-family: Arial, sans-serif; /* Основной шрифт + fallback (если Arial недоступен) */
@@ -591,20 +583,8 @@ footer.highlight {
 }
 
 @media (min-width: 50px) and (max-width: 450px) {
-.page-bg {
-  position: fixed;
-  top: -5dvh;
-  left: 0;
-  width: 100%;
-  height: 115dvh;
-  background-image: url("../img/fon/les-mobile.png");
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
-}
-.page-content {
-  position: relative;
-  z-index: 1;
+    body {
+  background-image: url("../img/fon/les-mobile.png"); /* Устанавливает фоновое изображение */
 }
     :root {
   --columns-count: 1; /* 🔹 СКОЛЬКО ФОТО В РЯДУ (3, 4, 5...) */
