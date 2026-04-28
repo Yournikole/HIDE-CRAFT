@@ -86,6 +86,7 @@ rightBtn?.addEventListener('click', () => {
 function closeLightbox() {
     lightbox.style.display = 'none';
     document.body.classList.remove('no-scroll');
+     backToTop.classList.add('show');
 }
 
 closeBtn?.addEventListener('click', closeLightbox);
