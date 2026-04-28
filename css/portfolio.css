@@ -22,11 +22,7 @@ body {
   padding: 0; /* Убирает внутренние отступы body (обычно уже сброшены reset'ом, но это явное указание) */
 
   /* Фон */
-  background-image: url("../img/fon/les.png"); /* Устанавливает фоновое изображение */
-  background-size: cover; /* Масштабирует изображение, чтобы оно полностью покрывало экран */
-  background-position: center; /* Центрирует фон по горизонтали и вертикали */
-  background-attachment: scroll; /* Делает фон неподвижным при прокрутке (эффект параллакса) */
-
+ background: none;
   /* Текст и шрифты */
   font-family: Arial, sans-serif; /* Основной шрифт + fallback (если Arial недоступен) */
   color: white; /* Основной цвет текста */
@@ -36,6 +32,15 @@ body {
   display: flex; /* Делает body flex-контейнером */
   flex-direction: column; /* Располагает дочерние элементы вертикально */
   min-height: 100vh; /* Минимальная высота — 100% высоты окна (лучше чем height:100%) */
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("../img/fon/les.png");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
 }
 
 /* === ШАПКА === */
@@ -516,6 +521,56 @@ footer.highlight {
   --gap-x: 5vw; /* 🔹 расстояние МЕЖДУ фото по горизонтали */
   --gap-y: 4vw; /* 🔹 расстояние МЕЖДУ фото по вертикали */
 }
+.lightbox-content {
+  align-items: center;
+  text-align: center;
+
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.lightbox {
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+#lightbox-title {
+  display: block;
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  text-align: center;
+  font-size: clamp(22px, 4vw, 26px);
+  font-weight: 600;
+}
+
+#lightbox-desc {
+  display: block;
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  text-align: center;
+  font-size: clamp(15px, 4vw, 20px);
+  opacity: 0.8;
+  margin-bottom: clamp(14px, 5vw, 26px);
+}
+.arrow.left {
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.arrow.right {
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+}
   .main-title h1 {
     font-size: clamp(60px, 8vw, 90px);
     font-weight: 800;
@@ -548,6 +603,57 @@ footer.highlight {
   --columns-count: 2; /* 🔹 СКОЛЬКО ФОТО В РЯДУ (3, 4, 5...) */
   --gap-x: 5vw; /* 🔹 расстояние МЕЖДУ фото по горизонтали */
   --gap-y: 4vw; /* 🔹 расстояние МЕЖДУ фото по вертикали */
+}
+
+.lightbox-content {
+  align-items: center;
+  text-align: center;
+
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.lightbox {
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+#lightbox-title {
+  display: block;
+  position: absolute;
+  top: 110px;
+  width: 100%;
+  text-align: center;
+  font-size: clamp(22px, 4vw, 26px);
+  font-weight: 600;
+}
+
+#lightbox-desc {
+  display: block;
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  text-align: center;
+  font-size: clamp(18px, 4vw, 20px);
+  opacity: 0.8;
+  margin-bottom: 40px;
+}
+.arrow.left {
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.arrow.right {
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
 }
  .main-title h1{
   display: none;
@@ -583,8 +689,18 @@ footer.highlight {
 }
 
 @media (min-width: 50px) and (max-width: 450px) {
-    body {
-  background-image: url("../img/fon/les-mobile.png"); /* Устанавливает фоновое изображение */
+body {
+  background: none;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("../img/fon/les.png");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
 }
     :root {
   --columns-count: 1; /* 🔹 СКОЛЬКО ФОТО В РЯДУ (3, 4, 5...) */
@@ -832,56 +948,6 @@ footer.highlight {
     display: none;
   }
 
-  .lightbox-content {
-  align-items: center;
-  text-align: center;
-
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  object-fit: contain;
-  border-radius: 12px;
-}
-
-.lightbox {
-  backdrop-filter: blur(5px);
-  background: rgba(0, 0, 0, 0.8);
-}
-
-#lightbox-title {
-  display: block;
-  position: absolute;
-  top: 110px;
-  width: 100%;
-  text-align: center;
-  font-size: clamp(22px, 4vw, 26px);
-  font-weight: 600;
-}
-
-#lightbox-desc {
-  display: block;
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  text-align: center;
-  font-size: clamp(15px, 4vw, 20px);
-  opacity: 0.8;
-  margin-bottom: 40px;
-}
-.arrow.left {
-  left: 40px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.arrow.right {
-  right: 40px;
-  top: 50%;
-  transform: translateY(-50%);
-}
   /* ================= FOOTER ================= */
 
   .footer-table {

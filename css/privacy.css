@@ -25,7 +25,7 @@ body {
   background-image: url("../img/fon/les.png"); /* Устанавливает фоновое изображение */
   background-size: cover; /* Масштабирует изображение, чтобы оно полностью покрывало экран */
   background-position: center; /* Центрирует фон по горизонтали и вертикали */
-  background-attachment: scroll; /* Делает фон неподвижным при прокрутке (эффект параллакса) */
+  background-attachment: fixed; /* Делает фон неподвижным при прокрутке (эффект параллакса) */
 
   /* Текст и шрифты */
   font-family:
@@ -319,7 +319,7 @@ footer.highlight {
 @media (min-width: 50px) and (max-width: 450px) {
     body {
   background-image: url("../img/fon/les-mobile.png"); /* Устанавливает фоновое изображение */
-  background-attachment: scroll;
+  background-attachment: fixed;
 }
   .privacy-content h1 {
     font-size: clamp(20px, 5vw, 30px);

@@ -25,7 +25,7 @@ body {
   background-image: url("../img/fon/les.png"); /* Устанавливает фоновое изображение */
   background-size: cover; /* Масштабирует изображение, чтобы оно полностью покрывало экран */
   background-position: center; /* Центрирует фон по горизонтали и вертикали */
-  background-attachment: scroll; /* Делает фон неподвижным при прокрутке (эффект параллакса) */
+  background-attachment: fixed; /* Делает фон неподвижным при прокрутке (эффект параллакса) */
 
   /* Текст и шрифты */
   font-family: Arial, sans-serif; /* Основной шрифт + fallback (если Arial недоступен) */
