@@ -594,7 +594,7 @@ footer.highlight {
 .page-bg {
   position: fixed;
   inset: 0;
-  background-image: url("../img/fon/les.png");
+  background-image: url("../img/fon/les-mobile.png");
   background-size: cover;
   background-position: center;
   z-index: -1;
