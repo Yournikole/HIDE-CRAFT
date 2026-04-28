@@ -590,13 +590,13 @@ footer.highlight {
 .page-bg {
   position: fixed;
   inset: 0;
-  background-image: url("../img/fon/les-mobile.png");
+  background-image: url("../img/fon/les.png");
   background-size: cover;
   background-position: center;
   z-index: -1;
 }
     :root {
-  --columns-count: 2; /* 🔹 СКОЛЬКО ФОТО В РЯДУ (3, 4, 5...) */
+  --columns-count: 1; /* 🔹 СКОЛЬКО ФОТО В РЯДУ (3, 4, 5...) */
   --gap-x: 5vw; /* 🔹 расстояние МЕЖДУ фото по горизонтали */
   --gap-y: 4vw; /* 🔹 расстояние МЕЖДУ фото по вертикали */
 }
