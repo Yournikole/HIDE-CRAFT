@@ -593,10 +593,10 @@ footer.highlight {
 @media (min-width: 50px) and (max-width: 450px) {
 .page-bg {
   position: fixed;
-  top: 0;
+  top: -5dvh;
   left: 0;
   width: 100%;
-  height: calc(100dvh + env(safe-area-inset-bottom));
+  height: 115dvh;
   background-image: url("../img/fon/les-mobile.png");
   background-size: cover;
   background-position: center;
@@ -607,7 +607,7 @@ footer.highlight {
   z-index: 1;
 }
     :root {
-  --columns-count: 2; /* 🔹 СКОЛЬКО ФОТО В РЯДУ (3, 4, 5...) */
+  --columns-count: 1; /* 🔹 СКОЛЬКО ФОТО В РЯДУ (3, 4, 5...) */
   --gap-x: 5vw; /* 🔹 расстояние МЕЖДУ фото по горизонтали */
   --gap-y: 4vw; /* 🔹 расстояние МЕЖДУ фото по вертикали */
 }
