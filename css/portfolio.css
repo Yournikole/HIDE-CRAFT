@@ -7,7 +7,7 @@ html,
 body {
   max-width: 100%; /* Ограничивает ширину, предотвращая выход контента за пределы экрана */
 
-  height: 100%; /* Делает высоту равной 100% окна (важно для вложенных элементов) */
+  /* height: 100%; Делает высоту равной 100% окна (важно для вложенных элементов) */
   margin: 0; /* Убирает стандартные внешние отступы браузера */
 }
 
@@ -20,7 +20,7 @@ body {
 /* === ФОН И ОСНОВНЫЕ СТИЛИ ДЛЯ BODY === */
 body {
   padding: 0; /* Убирает внутренние отступы body (обычно уже сброшены reset'ом, но это явное указание) */
-
+min-height: 100dvh;
   /* Фон */
  background: none;
   /* Текст и шрифты */
@@ -36,8 +36,10 @@ body {
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
-  height: 100dvh; /* 👈 вместо vh */
+  top: -10vh;
+  left: 0;
+  width: 100%;
+  height: 120dvh;
   background-image: url("../img/fon/les.png");
   background-size: cover;
   background-position: center;
@@ -692,20 +694,23 @@ footer.highlight {
 @media (min-width: 50px) and (max-width: 450px) {
 body {
   background: none;
+  min-height: 100dvh;
 }
 
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
-  height: 100dvh; /* 👈 вместо vh */
-  background-image: url("../img/fon/les-mobile.png");
+  top: -10vh;
+  left: 0;
+  width: 100%;
+  height: 120dvh;
+  background-image: url("../img/fon/les.png");
   background-size: cover;
   background-position: center;
   z-index: -1;
 }
     :root {
-  --columns-count: 1; /* 🔹 СКОЛЬКО ФОТО В РЯДУ (3, 4, 5...) */
+  --columns-count: 2; /* 🔹 СКОЛЬКО ФОТО В РЯДУ (3, 4, 5...) */
   --gap-x: 5vw; /* 🔹 расстояние МЕЖДУ фото по горизонтали */
   --gap-y: 4vw; /* 🔹 расстояние МЕЖДУ фото по вертикали */
 }
