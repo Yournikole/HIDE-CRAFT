@@ -37,6 +37,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
+  height: 100dvh; /* 👈 вместо vh */
   background-image: url("../img/fon/les.png");
   background-size: cover;
   background-position: center;
@@ -697,7 +698,8 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("../img/fon/les.png");
+  height: 100dvh; /* 👈 вместо vh */
+  background-image: url("../img/fon/les-mobile.png");
   background-size: cover;
   background-position: center;
   z-index: -1;
